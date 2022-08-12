@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
                         item.transform.parent = transform.GetChild(0);
                         item.transform.localPosition = HoldPosition;
                         Helditem = item;
+                        Helditem.transform.localRotation =Quaternion.Euler( Vector3.zero);
                         break;
                     }
                 }
