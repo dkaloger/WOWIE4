@@ -8,7 +8,7 @@ public class Mining : MonoBehaviour
     public Tilemap TLMain;
     public Tile Rock;
     Tile tileNull;
-    float progress;
+    public float progress;
     public float RockHardness;
    public GameObject Ore;
     // Start is called before the first frame update
