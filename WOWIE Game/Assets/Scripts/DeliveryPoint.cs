@@ -17,6 +17,7 @@ public class DeliveryPoint : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Score Manager").GetComponent<Score>().score += PaintingValue;
             GameObject.FindGameObjectWithTag("Score Manager").GetComponent<Score>().Timer = 0;
+            GameObject.FindGameObjectWithTag("Score Manager").GetComponent<Score>().CompletedPaintings ++;           
             Destroy(collision.gameObject);
         }
     }

@@ -5,6 +5,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     public float score;
+    public int CompletedPaintings;
     public float Timer;
     public float penaltyTime; 
     public TextMeshProUGUI ScoreCounter;
