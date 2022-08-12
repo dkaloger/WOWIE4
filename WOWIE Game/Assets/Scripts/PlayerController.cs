@@ -54,8 +54,9 @@ public class PlayerController : MonoBehaviour
                     {
                        
                         item.transform.parent = transform.GetChild(0);
-                        item.transform.localPosition = HoldPosition;
+                       // item.transform.localPosition = HoldPosition;
                         Helditem = item;
+                        item.GetComponent<HoldableObject>().move = true;
                         Helditem.transform.localRotation =Quaternion.Euler( Vector3.zero);
                         var itemObject = Helditem.GetComponent<IHeldItem>();
                         if (itemObject != null)

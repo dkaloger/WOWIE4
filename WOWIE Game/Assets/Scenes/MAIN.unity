@@ -178,10 +178,9 @@ GameObject:
   m_Component:
   - component: {fileID: 95976654}
   - component: {fileID: 95976653}
-  - component: {fileID: 95976655}
   m_Layer: 0
   m_Name: Pickaxe
-  m_TagString: Holdable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,27 +244,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95976652}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.747, y: 0.568, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.329, y: -0.09293789, z: -0.123514384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1590198761}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &95976655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95976652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd5b525eb2d3864cb32e12db6b18088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stackSize: 1
 --- !u!1 &121464307
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +299,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -558,7 +544,7 @@ MonoBehaviour:
   maxspeed: 15
   pickupRange: 1
   Helditem: {fileID: 0}
-  HoldPosition: {x: 1, y: 0, z: 0}
+  HoldPosition: {x: 0.6, y: 0, z: 0}
   SprintCooldown: 5
   SprintMultiplier: 30
   SprintT: 0
@@ -687,6 +673,7 @@ MonoBehaviour:
   progress: 0
   RockHardness: 3
   Ore: {fileID: 4944936879593555845, guid: 7b58882c0d0886945ab785a6ee96fd72, type: 3}
+  anim: {fileID: 1590198762}
 --- !u!58 &433435514
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -747,6 +734,7 @@ MonoBehaviour:
   rb: {fileID: 433435511}
   sprite: {fileID: 433435509}
   isFacingRight: 0
+  minvel: 0.2
 --- !u!114 &433435517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6036,6 +6024,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f833ed833d76409895f47741879fad6, type: 3}
+--- !u!1 &1590198760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590198761}
+  - component: {fileID: 1590198762}
+  - component: {fileID: 1590198763}
+  m_Layer: 0
+  m_Name: Pickaxe
+  m_TagString: Holdable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1590198761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590198760}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8724259, y: 0.6609379, z: 0.123514384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 95976654}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1590198762
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590198760}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 917c73b323af07841b8e29e71c34826b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 917c73b323af07841b8e29e71c34826b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1590198763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590198760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd5b525eb2d3864cb32e12db6b18088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackSize: 1
+  move: 0
+  movespeed: 1
+  holdposition: {x: 0.6, y: 0, z: 0}
 --- !u!1 &1791531840
 GameObject:
   m_ObjectHideFlags: 0
