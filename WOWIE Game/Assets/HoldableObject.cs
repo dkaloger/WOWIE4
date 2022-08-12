@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HoldableObject : MonoBehaviour
 {
+    public int stackSize;
     // Start is called before the first frame update
     void Start()
     {
