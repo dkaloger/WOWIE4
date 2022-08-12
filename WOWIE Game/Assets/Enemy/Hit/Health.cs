@@ -1,4 +1,6 @@
 using System;
+using BulletFury;
+using BulletFury.Data;
 using UnityEngine;
 
 /// <summary>
@@ -67,6 +69,19 @@ public class Health : MonoBehaviour, IHitReceiver
         // - doing it here means we only have to do the divide once, and division is a computationally expensive operation
         _healthPercentage = _currentHealth / maxHealth;
         InvokeHitEvent(data.Damage > 0);
+    }
+    
+    public virtual void OnBulletHit(BulletContainer bullet, BulletCollider collider)
+    {
+        if (!enabled)
+            return;
+        ReceiveHit(new HitData
+        {
+            Damage = bullet.Damage,
+            DamageType = DamageType.Projectile,
+            IncomingDirection = bullet.Up,
+            IncomingBullet = bullet
+        });
     }
 
     protected void InvokeHitEvent(bool isHit)

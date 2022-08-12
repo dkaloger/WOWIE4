@@ -51,6 +51,7 @@ public class MoveTowardsPlayer : MonoBehaviour
             if (distToPlayerSq <= _stopSq)
             {
                 InRange.Invoke();
+                _rb.velocity = Vector3.SmoothDamp(_rb.velocity, Vector3.zero, ref _velocity, acceleration * 2);
             }
             else
             {
@@ -59,6 +60,8 @@ public class MoveTowardsPlayer : MonoBehaviour
                 _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _dirToMove * speed, ref _velocity, acceleration);
             }
         }
+
+        _aggroTimer += Time.fixedDeltaTime;
     }
 
     private void OnDrawGizmosSelected()

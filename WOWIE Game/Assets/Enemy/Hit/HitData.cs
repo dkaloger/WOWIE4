@@ -1,4 +1,5 @@
 using System;
+using BulletFury.Data;
 using UnityEngine;
 
 /// <summary>
@@ -21,4 +22,5 @@ public struct HitData
     public GameObject IncomingObject; // the object that caused this hit
     public Vector3 IncomingDirection; // the direction the object was travelling
     public Collision2D CollisionInfo; // Collision data for rigidbody collisions
+    public BulletContainer IncomingBullet;
 }

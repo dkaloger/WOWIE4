@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3996158855833576392}
   - component: {fileID: 3996158855833576395}
+  - component: {fileID: 5504838602645904252}
   m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
@@ -48,6 +49,47 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.88, y: 0.73}
   m_Direction: 0
+--- !u!114 &5504838602645904252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996158855833576393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9add1c9d0cf8e4cb28a0121845c457c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletLayersToBeHitBy:
+    serializedVersion: 2
+    m_Bits: 0
+  shape: 1
+  radius: 0.5
+  size: {x: 0.61, y: 0.71, z: 1}
+  destroyBullet: 1
+  center: {x: 0, y: 0, z: 0}
+  pointA: {x: 0, y: 0, z: 0}
+  pointB: {x: 0, y: 0, z: 0}
+  pointC: {x: 0, y: 0, z: 0}
+  OnCollide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3996158857337090058}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: OnBulletHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  bounce: 0
+  lifetimeLoss: 0
+  bounciness: 0
 --- !u!1 &3996158855890622978
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
+  m_Sprite: {fileID: 621905476, guid: 964bffb2654fa86468b4b8784ecf5386, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
