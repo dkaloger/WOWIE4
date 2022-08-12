@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Holdable
   - Enemy
+  - Score Manager
   layers:
   - Default
   - TransparentFX
