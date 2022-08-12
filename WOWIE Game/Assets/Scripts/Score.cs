@@ -26,6 +26,6 @@ public class Score : MonoBehaviour
         TimeCounter.text = Mathf.RoundToInt(Timer).ToString() + "s /"+ Mathf.RoundToInt(penaltyTime).ToString()+"s";
         ScoreCounter.text ="Score:"+Mathf.RoundToInt( score).ToString();
 
-
+        
     }
 }
