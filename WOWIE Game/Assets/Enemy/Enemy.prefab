@@ -186,6 +186,8 @@ GameObject:
   - component: {fileID: 3996158857337090058}
   - component: {fileID: 3996158857337090052}
   - component: {fileID: 3996158857337090055}
+  - component: {fileID: 1291327606150541406}
+  - component: {fileID: 8903906673306103735}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -243,7 +245,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3996158857337090055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,4 +266,59 @@ MonoBehaviour:
   aggroCooldown: 1
   InRange:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1291327606150541406}
+        m_TargetAssemblyTypeName: MeleeAttack, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1291327606150541406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996158857337090059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f70f30029a48e496d555cc10d37a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 64
+  attackStart:
+    m_PersistentCalls:
       m_Calls: []
+  attackEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  hitCooldown: 0.5
+  damageOffset: {x: 0.62, y: 0, z: 0}
+  damageRadius: 0.42
+  attackLengthInSeconds: 0.1
+  tokensToUse: {fileID: 11400000, guid: 9bf78d017274b403485e321fb772b6b1, type: 2}
+  sprite: {fileID: 3996158855890623996}
+--- !u!114 &8903906673306103735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996158857337090059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb71ed8b1984f7fb49fc27d21be55f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3996158857337090052}
+  sprite: {fileID: 3996158855890623996}
+  isFacingRight: 0

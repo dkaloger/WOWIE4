@@ -9,7 +9,7 @@ using UnityEngine;
 /// - run specific functions for different damage types, e.g. buttons that are pressed with projectiles, mirrors that reflect lasers, etc 
 /// </summary>
 [Flags]
-public enum DamageType { Projectile, Laser, Effect }
+public enum DamageType { Projectile, Laser, Melee, Effect }
 
 
 /// <summary>

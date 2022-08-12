@@ -26,10 +26,12 @@ public class MoveTowardsPlayer : MonoBehaviour
     private float _aggroSq;
     private float _aggroTimer = 0f;
 
+    private Squirrel3 _rnd;
 
     // Start is called before the first frame update
     void Start()
     {
+        _rnd = new Squirrel3();
         if (_player == null)
             _player = GameObject.FindWithTag("Player").transform;
 
@@ -55,7 +57,7 @@ public class MoveTowardsPlayer : MonoBehaviour
             }
             else
             {
-                _dirToMove = Vector3.RotateTowards(_dirToMove, (_player.position - transform.position).normalized,
+                _dirToMove = Vector3.RotateTowards(_dirToMove, (_player.position + (_rnd.Next() > 0.5f ? _player.right : -_player.right) - transform.position).normalized,
                     turnSpeed, 0);
                 _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _dirToMove * speed, ref _velocity, acceleration);
             }

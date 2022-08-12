@@ -64,11 +64,13 @@ public class Health : MonoBehaviour, IHitReceiver
         // keep track of what the health used to be
         _previousHealth = _currentHealth;
 
+        _currentHealth -= data.Damage;
         // keep track of what the health currently is 
         // keep track of the current health as a percentage
         // - doing it here means we only have to do the divide once, and division is a computationally expensive operation
         _healthPercentage = _currentHealth / maxHealth;
         InvokeHitEvent(data.Damage > 0);
+        Debug.Log(_healthPercentage);
     }
     
     public virtual void OnBulletHit(BulletContainer bullet, BulletCollider collider)
