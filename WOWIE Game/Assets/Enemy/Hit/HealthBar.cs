@@ -29,6 +29,7 @@ public class HealthBar : MonoBehaviour
 
     public void HealthUpdate(float newPercent, bool isHit)
     {
+
         healthBar.fillAmount = newPercent;
         healthBarFlash.DOFillAmount(newPercent, flashTime).SetDelay(flashDelay);
     }

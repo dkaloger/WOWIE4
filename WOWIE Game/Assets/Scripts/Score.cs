@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
             score -= Time.deltaTime;
         }
         TimeCounter.text = Mathf.RoundToInt(Timer).ToString() + "s /"+ Mathf.RoundToInt(penaltyTime).ToString()+"s";
-        ScoreCounter.text ="Score:"+Mathf.RoundToInt( score).ToString();
+        ScoreCounter.text ="Prestige:"+Mathf.RoundToInt( score).ToString();
 
         
     }
