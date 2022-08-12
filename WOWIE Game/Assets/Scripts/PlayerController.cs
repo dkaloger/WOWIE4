@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
         //movement
         if(Mathf.Abs(rb.velocity.x)+Mathf.Abs( rb.velocity.y) < maxspeed)
         {
-            rb.AddForce(Input.GetAxis("Vertical") * transform.up * speed *Time.deltaTime);
-            rb.AddForce(Input.GetAxis("Horizontal") * transform.right * speed * Time.deltaTime);
+            rb.AddForce(transform.up * (Input.GetAxis("Vertical") * speed * Time.deltaTime));
+            rb.AddForce(transform.right * (Input.GetAxis("Horizontal") * speed * Time.deltaTime));
         }
         //Pivot
 
@@ -44,12 +44,19 @@ public class PlayerController : MonoBehaviour
                         item.transform.localPosition = HoldPosition;
                         Helditem = item;
                         Helditem.transform.localRotation =Quaternion.Euler( Vector3.zero);
+                        var itemObject = Helditem.GetComponent<IHeldItem>();
+                        if (itemObject != null)
+                            itemObject.Pickup();
+
                         break;
                     }
                 }
             }
             else if(Helditem != null)
             {
+                var itemObject = Helditem.GetComponent<IHeldItem>();
+                if (itemObject != null)
+                    itemObject.Drop();
                 Helditem.transform.parent = null;               
                 Helditem = null;                
             }
