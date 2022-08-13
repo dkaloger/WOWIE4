@@ -33,7 +33,7 @@ public class MoveTowardsPlayer : MonoBehaviour
     {
         _rnd = new Squirrel3();
         if (_player == null)
-            _player = GameObject.FindWithTag("Player").transform;
+            _player = GameObject.FindWithTag("THE AI").transform;
 
         _rb = GetComponent<Rigidbody2D>();
         _stopSq = stopDistance * stopDistance;

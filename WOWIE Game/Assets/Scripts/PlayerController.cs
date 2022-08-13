@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float pickupRange;
     public GameObject Helditem;
     public Vector3 HoldPosition;
+    public int SprintCooldown, SprintMultiplier;
+    public float SprintT;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * (Input.GetAxis("Vertical") * speed * Time.deltaTime));
             rb.AddForce(transform.right * (Input.GetAxis("Horizontal") * speed * Time.deltaTime));
+        }
+        SprintT += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.LeftShift)|| Input.GetKeyDown(KeyCode.RightShift) )
+        {
+            if(SprintCooldown< SprintT)
+            {
+                rb.AddForce(transform.up * (Input.GetAxis("Vertical") * speed * Time.deltaTime*SprintMultiplier));
+                rb.AddForce(transform.right * (Input.GetAxis("Horizontal") * speed * Time.deltaTime * SprintMultiplier));
+                SprintT = 0;
+            }
+            
         }
         //Pivot
 
@@ -41,8 +54,9 @@ public class PlayerController : MonoBehaviour
                     {
                        
                         item.transform.parent = transform.GetChild(0);
-                        item.transform.localPosition = HoldPosition;
+                       // item.transform.localPosition = HoldPosition;
                         Helditem = item;
+                        item.GetComponent<HoldableObject>().move = true;
                         Helditem.transform.localRotation =Quaternion.Euler( Vector3.zero);
                         var itemObject = Helditem.GetComponent<IHeldItem>();
                         if (itemObject != null)

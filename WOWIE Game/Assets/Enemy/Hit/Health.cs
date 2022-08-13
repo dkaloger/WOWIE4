@@ -71,6 +71,8 @@ public class Health : MonoBehaviour, IHitReceiver
         _healthPercentage = _currentHealth / maxHealth;
         InvokeHitEvent(data.Damage > 0);
         Debug.Log(_healthPercentage);
+        print("hit");
+      
     }
     
     public virtual void OnBulletHit(BulletContainer bullet, BulletCollider collider)

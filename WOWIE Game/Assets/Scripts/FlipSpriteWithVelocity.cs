@@ -5,8 +5,9 @@ public class FlipSpriteWithVelocity : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private bool isFacingRight = false;
-    private void FixedUpdate()
+    public float minvel=0.2f;
+    private void Update()
     {
-        sprite.flipX = isFacingRight ? rb.velocity.x > 0 : rb.velocity.x < 0;
+        sprite.flipX = isFacingRight ? rb.velocity.x > minvel : rb.velocity.x < minvel;
     }
 }

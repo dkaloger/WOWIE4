@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Score Manager
   - Painting
+  - THE AI
+  - Wavealert
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Enemy
   - PlayerBullet
   - EnemyBullet
-  - 
+  - THE AI
   - 
   - 
   - 

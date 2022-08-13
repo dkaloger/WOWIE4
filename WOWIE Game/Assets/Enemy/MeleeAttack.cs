@@ -60,6 +60,8 @@ public class MeleeAttack : MonoBehaviour
                     IncomingObject = gameObject,
                     IncomingDirection =  (_hitResults[i].transform.position - transform.position).normalized
                 });
+              
+
             }
         }
     }

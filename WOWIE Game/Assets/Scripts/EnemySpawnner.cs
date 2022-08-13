@@ -7,7 +7,9 @@ public class EnemySpawnner : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private float sizeOfSpawnPoint;
     public bool showGuideLines;
-
+    public float t;
+    public float wavecooldown;
+    public int wavesizeMin, wavesizeMax;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,18 @@ public class EnemySpawnner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        t+=Time.deltaTime;
+      
+        if (t>wavecooldown)
         {
-            SpawEnemy();
+            GameObject.FindGameObjectWithTag("Wavealert").GetComponent<Animation>().Play();
+            for (int i = 0; i < Random.Range(wavesizeMin,wavesizeMax); i++)
+            {
+                SpawEnemy();
+            }
+            t = 0;
+            
+
         }
     }
 
