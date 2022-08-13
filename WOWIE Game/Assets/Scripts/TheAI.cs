@@ -21,10 +21,12 @@ public class TheAI : MonoBehaviour
             StoredOre++;
             collision.transform.parent.parent.GetComponent<PlayerController>().Helditem = null;
             Destroy(collision.gameObject);
+            GetComponent<AudioSource>().Play();
             if (StoredOre == 1)
             {
                 workedonpainting= Instantiate(Painting, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
                 workedonpainting.transform.parent = transform.GetChild(0);
+               
             }
             workedonpainting.GetComponent<painting>().delivered++;
 
