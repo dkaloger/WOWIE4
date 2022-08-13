@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea5bdc85528d4c54ea15f72c50eb3c21
+guid: a5f1a14d2530f1f48820aaf240a68300
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerforward_0
+      name: player_right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 312bc1cab60add04aa87376a182f9bb8
-      internalID: 2072636303
+      spriteID: e69e2ffab9245844ca73984cb8288bf2
+      internalID: -1003248950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerforward_1
+      name: player_right_1
       rect:
         serializedVersion: 2
         x: 52
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 174e987c1da5f3145b99ec17f962b3d9
-      internalID: 1863616170
+      spriteID: 0eb7aa5a616223d4c83eb555b68bfb97
+      internalID: -313629279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerforward_2
+      name: player_right_2
       rect:
         serializedVersion: 2
         x: 104
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e39468b237a798e46884dab8b1669cf5
-      internalID: 2094955248
+      spriteID: 5ef723650c2eb6a4d8b970809a05e9b1
+      internalID: -488365239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerforward_3
+      name: player_right_3
       rect:
         serializedVersion: 2
         x: 156
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e13990b0f3b49644286a21bbcea9d924
-      internalID: 1594626903
+      spriteID: e6b62b68962a1744c9410b321e6ccfcd
+      internalID: 1182613058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerforward_4
+      name: player_right_4
       rect:
         serializedVersion: 2
         x: 208
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536de99e8c5014148bd811ffaa7feb30
-      internalID: 935259859
+      spriteID: 4d5cc84c7c7a32843a33a541d56338bf
+      internalID: 181939561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerforward_5
+      name: player_right_5
       rect:
         serializedVersion: 2
         x: 260
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de11f97f2f70adb4aa03caa188c51148
-      internalID: -1683135207
+      spriteID: e063d597bfcc96649b774d510c9b60e5
+      internalID: 1825317456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerforward_6
+      name: player_right_6
       rect:
         serializedVersion: 2
         x: 312
@@ -244,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e50168f8c7c939a4a8cc456966422625
-      internalID: -1977805314
+      spriteID: 442f45e862b8fe2469c62696122168f3
+      internalID: 889696429
       vertices: []
       indices: 
       edges: []
@@ -261,13 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerforward_5: -1683135207
-      playerforward_3: 1594626903
-      playerforward_0: 2072636303
-      playerforward_4: 935259859
-      playerforward_1: 1863616170
-      playerforward_2: 2094955248
-      playerforward_6: -1977805314
+      player_right_5: 1825317456
+      player_right_6: 889696429
+      player_right_4: 181939561
+      player_right_1: -313629279
+      player_right_2: -488365239
+      player_right_0: -1003248950
+      player_right_3: 1182613058
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
