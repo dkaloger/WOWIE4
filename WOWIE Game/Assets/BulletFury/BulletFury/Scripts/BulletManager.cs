@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BulletFury.Data;
-using BulletFury.Rendering;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
@@ -268,17 +267,8 @@ namespace BulletFury
             
             // draw all the meshes
             // n.b. this is why we can only have 1023 bullets per spawner
-            buffer.DrawMeshInstanced(bulletSettings.Mesh, 0, bulletSettings.Material, 0, _matrices, maxBullets, _materialPropertyBlock);
-            
-            // can't have two objects with the same priority, so keep increasing it til we find one that fits
-            var priority = drawPriority;
-            if (BulletFuryRenderPass.Buffers == null)
-                BulletFuryRenderPass.Buffers = new SortedList<int, CommandBuffer>();
-            while (BulletFuryRenderPass.Buffers.ContainsKey(priority))
-                ++priority;
-            
-            // add the command buffer to the render pass
-            BulletFuryRenderPass.Buffers.Add(priority, buffer);
+            //buffer.DrawMeshInstanced(bulletSettings.Mesh, 0, bulletSettings.Material, 0, _matrices, maxBullets, _materialPropertyBlock);
+            Graphics.DrawMeshInstanced(bulletSettings.Mesh, 0, bulletSettings.Material, _matrices, currentActiveBullets, _materialPropertyBlock, ShadowCastingMode.Off, false);
             maxActiveBullets = Mathf.Max(maxActiveBullets, currentActiveBullets);
         }
 
