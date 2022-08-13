@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackSize: 4
+  move: 0
+  movespeed: 0.01
+  holdposition: {x: 0.6, y: 0, z: 0}
 --- !u!58 &-1291841376590945866
 CircleCollider2D:
   m_ObjectHideFlags: 0

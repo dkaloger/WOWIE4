@@ -58,7 +58,9 @@ public class PlayerController : MonoBehaviour
                         Helditem = item;
                         item.GetComponent<HoldableObject>().move = true;
                         Helditem.transform.localRotation =Quaternion.Euler( Vector3.zero);
+                       // Helditem.transform.localPosition = HoldPosition;
                         var itemObject = Helditem.GetComponent<IHeldItem>();
+                        
                         if (itemObject != null)
                             itemObject.Pickup();
 
@@ -66,7 +68,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            else if(Helditem != null)
+            else if(Helditem != null&& !Helditem.name.Contains("Painting"))
             {
                 var itemObject = Helditem.GetComponent<IHeldItem>();
                 if (itemObject != null)
