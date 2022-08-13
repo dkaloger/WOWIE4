@@ -35,18 +35,37 @@ public class CSVImportWindow : EditorWindow
 
             _csvRows = File.ReadAllText(_csvPath).Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
-            var folder = _dialogueFolder.Replace(Application.dataPath, "Assets");
-            Debug.Log(folder);
-            
             foreach (var row in _csvRows)
             {
+                var folder = _dialogueFolder.Replace(Application.dataPath, "Assets");
                 var data = Regex.Matches(row, @"(?<=^|,)((""[^""]*"")|([^,]*))(?=$|,)").Select(d => d.Value).ToList();
                 var name = data.First();
                 data.RemoveAt(0);
 
+                var nameSplit = name.Split('_', StringSplitOptions.RemoveEmptyEntries);
+                if (nameSplit.Length > 1)
+                {
+                    if (!Directory.Exists(_dialogueFolder + Path.DirectorySeparatorChar + nameSplit[0]))
+                        Directory.CreateDirectory(_dialogueFolder + Path.DirectorySeparatorChar + nameSplit[0]);
+                    folder += Path.DirectorySeparatorChar + nameSplit[0];
+                    name = nameSplit[1];
+                }
+
+                for (var i = 0; i < data.Count; i++)
+                {
+                    var d = data[i];
+                    
+                    d = d.TrimStart('\"').TrimEnd('\"');
+
+                    data[i] = d;
+                }
+
                 var found = AssetDatabase.LoadAssetAtPath<DialogueScriptableObject>(folder + Path.DirectorySeparatorChar + name + ".asset");
                 if (found != null)
+                {
                     found.Pages = data;
+                    EditorUtility.SetDirty(found);
+                }
                 else
                 {
                     var newObj = CreateInstance<DialogueScriptableObject>();
@@ -54,6 +73,8 @@ public class CSVImportWindow : EditorWindow
                     newObj.Pages = data;
                     AssetDatabase.CreateAsset(newObj, folder + Path.DirectorySeparatorChar + name + ".asset");
                 }
+                
+                AssetDatabase.SaveAssets();
 
             }
         }
