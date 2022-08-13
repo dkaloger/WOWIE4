@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public float idlethreshold=0.1f;
     public float sensitivity=1000;
+    public Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,41 +24,41 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("Idle", true);
-
-        anim.SetBool("MoveLeft", false);
-        anim.SetBool("MoveRight", false);
-        anim.SetBool("MoveUp", false);
-        anim.SetBool("MoveDown", false);
-        if (Input.GetKey(KeyCode.A))
-        {
-            anim.SetBool("MoveLeft", true);
-            anim.SetBool("Idle", false);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            anim.SetBool("MoveRight", true);
-            anim.SetBool("Idle", false);
-        }
-        else if(Input.GetKey(KeyCode.W)){
-            anim.SetBool("MoveUp", true);
-            anim.SetBool("Idle", false);
-
-        }
-        else if(Input.GetKey(KeyCode.S))
-        {
-            anim.SetBool("MoveDown", true);
-            anim.SetBool("Idle", false);
-        }
-      
-       
-
-
         
-         if (Mathf.Abs(Input.GetAxis("Vertical")) < idlethreshold && Mathf.Abs(Input.GetAxis("Horizontal"))<idlethreshold)
-          {
-            anim.SetBool("Idle", true);
+        if (Helditem != null )
+        {
+          if(  Helditem.name.Contains("Ore") || Helditem.name.Contains("THE AI"))
+            {
+                Helditem.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            anim.SetBool("Carrying ore", Helditem.name.Contains("Ore")); 
         }
+        else
+        {
+            anim.SetBool("Carrying ore",false);
+
+        }
+
+            if (Mathf.Abs( Input.GetAxis("Horizontal")) -0.2f > 0 || Mathf.Abs(Input.GetAxis("Vertical")) - 0.2f > 0)
+        {
+            movement.x = Input.GetAxis("Horizontal");
+            movement.y = Input.GetAxis("Vertical");
+        }
+        //   anim.SetBool("Imovementdle", true);
+       
+       
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+
+
+
+
+
+        // if (Mathf.Abs(Input.GetAxis("Vertical")) < idlethreshold && Mathf.Abs(Input.GetAxis("Horizontal"))<idlethreshold)
+        // {
+        //anim.SetBool("Idle", true);
+        //}
+        //  anim.SetBool("Idle", false);
         //movement
         if (Mathf.Abs(rb.velocity.x)+Mathf.Abs( rb.velocity.y) < maxspeed)
         {
