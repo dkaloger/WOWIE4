@@ -27,10 +27,16 @@ public class PlayerController : MonoBehaviour
         
         if (Helditem != null )
         {
-          if(  Helditem.name.Contains("Ore") || Helditem.name.Contains("THE AI"))
+          if(  Helditem.name.Contains("Ore") || Helditem.name.Contains("The AI"))
             {
                 Helditem.GetComponent<SpriteRenderer>().enabled = false;
+                print("picked");
             }
+            if(Helditem.name.Contains("The AI"))
+            {
+                Helditem.GetComponent <BoxCollider2D>().enabled = false;
+            }
+            anim.SetBool("AI Picked", Helditem.name.Contains("The AI"));
             anim.SetBool("Carrying ore", Helditem.name.Contains("Ore")); 
         }
         else
@@ -112,8 +118,21 @@ public class PlayerController : MonoBehaviour
                 var itemObject = Helditem.GetComponent<IHeldItem>();
                 if (itemObject != null)
                     itemObject.Drop();
-                Helditem.transform.parent = null;               
-                Helditem = null;                
+                if (Helditem.name.Contains("The AI"))
+                {
+                    Helditem.GetComponent<BoxCollider2D>().enabled = true;
+                    Helditem.GetComponent<SpriteRenderer>().enabled = true;
+                    Helditem.transform.parent = null;
+                    Helditem.transform.position = transform.position;
+                    Helditem.transform.rotation = Quaternion.Euler(Vector3.zero);
+                    anim.SetBool("AI Picked", false);
+                }
+                
+                Helditem.transform.parent = null;
+             
+              
+                Helditem = null;
+              
             }
             
         }

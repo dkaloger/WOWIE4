@@ -370,7 +370,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1611636175
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1001 &291970416
@@ -6251,9 +6251,10 @@ GameObject:
   - component: {fileID: 1523897097}
   - component: {fileID: 1523897098}
   - component: {fileID: 1523897099}
+  - component: {fileID: 1523897100}
   m_Layer: 10
   m_Name: The AI
-  m_TagString: THE AI
+  m_TagString: Holdable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6517,6 +6518,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1523897100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523897091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd5b525eb2d3864cb32e12db6b18088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackSize: 1
+  move: 0
+  movespeed: 0.01
+  holdposition: {x: 0.6, y: 0, z: 0}
 --- !u!1001 &1531913292
 PrefabInstance:
   m_ObjectHideFlags: 0

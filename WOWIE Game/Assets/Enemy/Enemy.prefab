@@ -294,7 +294,7 @@ MonoBehaviour:
   damage: 5
   layersToHit:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1088
   attackStart:
     m_PersistentCalls:
       m_Calls: []

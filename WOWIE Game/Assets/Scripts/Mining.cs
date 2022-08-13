@@ -42,7 +42,7 @@ public class Mining : MonoBehaviour
                     {
                         progress = 0;
                         TLMain.SetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position), tileNull);
-                        Instantiate(Ore, new Vector3(0.5f, 0.5f, 0) + TLMain.layoutGrid.CellToWorld(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)), playerController.Helditem.transform.rotation);
+                        Instantiate(Ore, new Vector3(0.5f, 0.5f, 0) + TLMain.layoutGrid.CellToWorld(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)), Quaternion.Euler(Vector3.zero));
                     }
 
 
