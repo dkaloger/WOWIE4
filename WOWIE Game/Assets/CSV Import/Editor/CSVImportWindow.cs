@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -39,7 +40,7 @@ public class CSVImportWindow : EditorWindow
             
             foreach (var row in _csvRows)
             {
-                var data = row.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList();
+                var data = Regex.Matches(row, @"(?<=^|,)((""[^""]*"")|([^,]*))(?=$|,)").Select(d => d.Value).ToList();
                 var name = data.First();
                 data.RemoveAt(0);
 
