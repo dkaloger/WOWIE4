@@ -26,7 +26,11 @@ public class Mining : MonoBehaviour
         // if (Input.GetKeyDown(KeyCode.Space))
         // {
         
-        if (playerController.Helditem != null) { 
+        if (playerController.Helditem != null) {
+            if (playerController.Helditem.GetComponent<AudioSource>() != null)
+            {
+                playerController.Helditem.GetComponent<AudioSource>().enabled = Active;
+            }
             if (playerController.Helditem.name == "Pickaxe"&& TLMain.GetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)) == Rock)
             {
                 Active=true;
@@ -52,10 +56,8 @@ public class Mining : MonoBehaviour
                 progress = 0;
             }
         }
-        if(playerController.Helditem.GetComponent<AudioSource>() != null)
-        {
-            playerController.Helditem.GetComponent<AudioSource>().enabled = Active;
-        }
+
+        
         
     }
 }

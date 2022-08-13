@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public Vector3 HoldPosition;
     public int SprintCooldown, SprintMultiplier;
     public float SprintT;
+    public Animator anim;
+    public float idlethreshold=0.1f;
+    public float sensitivity=1000;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,43 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("Idle", true);
+
+        anim.SetBool("MoveLeft", false);
+        anim.SetBool("MoveRight", false);
+        anim.SetBool("MoveUp", false);
+        anim.SetBool("MoveDown", false);
+        if (Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("MoveLeft", true);
+            anim.SetBool("Idle", false);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("MoveRight", true);
+            anim.SetBool("Idle", false);
+        }
+        else if(Input.GetKey(KeyCode.W)){
+            anim.SetBool("MoveUp", true);
+            anim.SetBool("Idle", false);
+
+        }
+        else if(Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("MoveDown", true);
+            anim.SetBool("Idle", false);
+        }
+      
+       
+
+
+        
+         if (Mathf.Abs(Input.GetAxis("Vertical")) < idlethreshold && Mathf.Abs(Input.GetAxis("Horizontal"))<idlethreshold)
+          {
+            anim.SetBool("Idle", true);
+        }
         //movement
-        if(Mathf.Abs(rb.velocity.x)+Mathf.Abs( rb.velocity.y) < maxspeed)
+        if (Mathf.Abs(rb.velocity.x)+Mathf.Abs( rb.velocity.y) < maxspeed)
         {
             rb.AddForce(transform.up * (Input.GetAxis("Vertical") * speed * Time.deltaTime));
             rb.AddForce(transform.right * (Input.GetAxis("Horizontal") * speed * Time.deltaTime));
