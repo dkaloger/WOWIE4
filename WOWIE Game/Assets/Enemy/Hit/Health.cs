@@ -70,8 +70,6 @@ public class Health : MonoBehaviour, IHitReceiver
         // - doing it here means we only have to do the divide once, and division is a computationally expensive operation
         _healthPercentage = _currentHealth / maxHealth;
         InvokeHitEvent(data.Damage > 0);
-        Debug.Log(_healthPercentage);
-        print("hit");
       
     }
     
