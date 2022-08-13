@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(pausedSystem == null) return;
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(!isPaused)
@@ -42,6 +44,11 @@ public class GameManager : MonoBehaviour
     {
         SetTimeScale(1.0f);
         pausedSystem.SetActive(false);
+    }
+
+    public void GoToMainScene()
+    {
+        SceneManager.LoadScene("MAIN");
     }
 
     public void Restart()
