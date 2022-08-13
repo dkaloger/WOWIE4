@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefc66c2e9e6f46d7b30e5e853585772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 0.05
+  turnSpeed: 0.1
   acceleration: 0.01
   speed: 5
   stopDistance: 1.25
@@ -294,7 +294,7 @@ MonoBehaviour:
   damage: 5
   layersToHit:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1088
   attackStart:
     m_PersistentCalls:
       m_Calls: []
@@ -322,3 +322,4 @@ MonoBehaviour:
   rb: {fileID: 3996158857337090052}
   sprite: {fileID: 3996158855890623996}
   isFacingRight: 0
+  minvel: 0.2

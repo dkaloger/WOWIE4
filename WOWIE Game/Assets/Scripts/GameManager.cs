@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(pausedSystem == null) return;
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(!isPaused)
@@ -44,8 +46,23 @@ public class GameManager : MonoBehaviour
         pausedSystem.SetActive(false);
     }
 
+    public void GoToMainScene()
+    {
+        SceneManager.LoadScene("MAIN");
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

@@ -6,7 +6,7 @@ public class Mining : MonoBehaviour
 {
     PlayerController playerController;
     public Tilemap TLMain;
-    public Tile Rock;
+   // public Tile Rock;
     Tile tileNull;
     public float progress;
     public float RockHardness;
@@ -23,24 +23,30 @@ public class Mining : MonoBehaviour
     void Update()
     {
         Active = false;
-       // if (Input.GetKeyDown(KeyCode.Space))
-       // {
-       if(playerController.Helditem != null) { 
-            if (playerController.Helditem.name == "Pickaxe"&& TLMain.GetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)) == Rock)
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        
+        if (playerController.Helditem != null) {
+          
+            if (playerController.Helditem.name == "Pickaxe"&& TLMain.GetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position))!= null)
             {
-                Active=true;
-              
-                
-                progress += Time.deltaTime;
-                if(progress > RockHardness)
+                if (TLMain.GetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)).name.Contains("ore"))
                 {
-                    progress = 0;
-                    TLMain.SetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position), tileNull);
-                    Instantiate(Ore,new Vector3(0.5f,0.5f,0)+ TLMain.layoutGrid.CellToWorld( TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)), playerController.Helditem.transform.rotation);
+
+
+                    Active = true;
+
+
+                    progress += Time.deltaTime;
+                    if (progress > RockHardness)
+                    {
+                        progress = 0;
+                        TLMain.SetTile(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position), tileNull);
+                        Instantiate(Ore, new Vector3(0.5f, 0.5f, 0) + TLMain.layoutGrid.CellToWorld(TLMain.layoutGrid.WorldToCell(playerController.Helditem.transform.position)), Quaternion.Euler(Vector3.zero));
+                    }
+
+
                 }
-               
-
-
            }
            if(!anim.isPlaying && Active)
             {
@@ -50,6 +56,13 @@ public class Mining : MonoBehaviour
             {
                 progress = 0;
             }
+            if (playerController.Helditem.GetComponent<AudioSource>() != null)
+            {
+                playerController.Helditem.GetComponent<AudioSource>().enabled = Active;
+            }
         }
+
+        
+        
     }
 }

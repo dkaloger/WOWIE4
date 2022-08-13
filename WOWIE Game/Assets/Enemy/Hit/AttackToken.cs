@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttackToken
 {   
-    private const float Cooldown = 5f;
+    private const float Cooldown = 1f;
 
     public event Action<AttackToken> Steal;
 
@@ -25,7 +25,6 @@ public class AttackToken
     {
         CurrentPriority = priority;
         BelongsTo = obj;
-        Debug.Log($"Checking {id} out to {obj}");
     }
     
     public void StealToken()
@@ -38,8 +37,6 @@ public class AttackToken
         DOVirtual.DelayedCall(Cooldown, () =>
         {
             BelongsTo = null;
-            
-            Debug.Log($"Returning {id} to pool");
             onReturn?.Invoke();
         }, false);
     }

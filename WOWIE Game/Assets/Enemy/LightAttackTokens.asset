@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: LightAttackTokens
   m_EditorClassIdentifier: 
   numTokensInPool: 10
+  delayBetweenTokenRequests:
+    Min: 0.1
+    Max: 0.3
