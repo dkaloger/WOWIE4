@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 25
   die: 1
+  dying: 0
 --- !u!50 &3996158857337090052
 Rigidbody2D:
   serializedVersion: 4
