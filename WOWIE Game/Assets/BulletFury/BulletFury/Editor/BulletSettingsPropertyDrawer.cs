@@ -13,7 +13,6 @@ namespace BulletFury.Editor
 
         private bool _expandColor;
         private bool _expandRotation;
-        private bool _expandMagnetism;
         private bool _expandSize;
         private bool _expandVelocity;
         private bool _expandForce;
@@ -132,7 +131,8 @@ namespace BulletFury.Editor
             _expandRotation = EditorGUI.Foldout(currentPos, _expandRotation, "Rotation Over Time");
             currentPos.x -= height;
             checkboxPos.y = currentPos.y;
-            EditorGUI.PropertyField(checkboxPos, serializedObject.FindProperty("useRotationOverTime"), GUIContent.none, true);
+            EditorGUI.PropertyField(checkboxPos, serializedObject.FindProperty("useRotationOverTime"), GUIContent.none,
+                true);
             enabled = serializedObject.FindProperty("useRotationOverTime").boolValue;
             if (_expandRotation)
             {
@@ -161,30 +161,7 @@ namespace BulletFury.Editor
                 
                 EditorGUI.EndDisabledGroup();
             }
-            
-            currentPos.y += height;
-            ++numFields;
-            currentPos.x += height;
-            _expandMagnetism = EditorGUI.Foldout(currentPos, _expandMagnetism, "Bullet Magnetism");
-            currentPos.x -= height;
-            checkboxPos.y = currentPos.y;
-            EditorGUI.PropertyField(checkboxPos, serializedObject.FindProperty("magnetiseObject"), GUIContent.none, true);
-            enabled = serializedObject.FindProperty("magnetiseObject").boolValue;
-            if (_expandMagnetism)
-            {
-                EditorGUI.BeginDisabledGroup(!enabled);
-                
-                BulletFuryEditorUtils.AddRelativeProperty(ref serializedObject, "magnetismRadius", height, ref currentPos, ref numFields);
-                BulletFuryEditorUtils.AddRelativeProperty(ref serializedObject, "magnetismStrength", height, ref currentPos, ref numFields);
-                
-                currentPos.y += height * 1.25f;
-                ++numFields;
-                serializedObject.FindProperty("magnetisedObjectTag").stringValue = EditorGUI.TagField(currentPos, serializedObject.FindProperty("magnetisedObjectTag").stringValue);
-                
-                EditorGUI.EndDisabledGroup();
-            }
-            
-            
+
             currentPos.y += height;
             ++numFields;
             currentPos.x += height;

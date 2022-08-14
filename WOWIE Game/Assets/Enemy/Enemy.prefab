@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 3996158857337090055}
   - component: {fileID: 1291327606150541406}
   - component: {fileID: 8903906673306103735}
+  - component: {fileID: 9069575879195152108}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -323,3 +324,23 @@ MonoBehaviour:
   sprite: {fileID: 3996158855890623996}
   isFacingRight: 0
   minvel: 0.2
+--- !u!95 &9069575879195152108
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996158857337090059}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e51581c46195470ba70fe1832821015, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
