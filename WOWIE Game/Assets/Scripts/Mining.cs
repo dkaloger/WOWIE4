@@ -29,7 +29,7 @@ public class Mining : MonoBehaviour
         
         if (playerController.Helditem != null) {
             
-            print(transform.position + (Vector3)playerController.movement.normalized + new Vector3(0.0f, -0.5f, 0f));
+           // print(transform.position + (Vector3)playerController.movement.normalized + new Vector3(0.0f, -0.5f, 0f));
             if (playerController.Helditem.name == "Pickaxe"&& TLMain.GetTile(TLMain.layoutGrid.WorldToCell(transform.position+(Vector3)playerController.movement.normalized+ offset))!= null)
             {
                 if (TLMain.GetTile(TLMain.layoutGrid.WorldToCell(transform.position + (Vector3)playerController.movement.normalized + offset)).name.Contains("ore"))

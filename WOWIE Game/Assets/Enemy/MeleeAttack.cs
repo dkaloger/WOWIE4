@@ -73,6 +73,7 @@ public class MeleeAttack : MonoBehaviour
         
         _token = tokensToUse.RequestToken(this, 0);
         if (_token == null) return;
+        GetComponent<Animator>().SetTrigger("Attack");
         _attackedEnemies.Clear();
         _hitTimer -= hitCooldown;
         _attacking = true;

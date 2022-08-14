@@ -27,7 +27,8 @@ public class MoveTowardsPlayer : MonoBehaviour
     private float _aggroTimer = 0f;
 
     private Squirrel3 _rnd;
-
+    public Animator anim;
+    public Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,14 @@ public class MoveTowardsPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Mathf.Abs(_rb.velocity.x) - 0.2f > 0 || Mathf.Abs(_rb.velocity.y) - 0.2f > 0)
+        {
+            movement.x = _rb.velocity.x;
+            movement.y = _rb.velocity.y;
+        }
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+
         var distToPlayerSq = (_player.position - transform.position).sqrMagnitude;
 
         bool aggro = distToPlayerSq < _aggroSq || _aggroTimer < aggroCooldown;

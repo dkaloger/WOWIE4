@@ -8,6 +8,6 @@ public class FlipSpriteWithVelocity : MonoBehaviour
     public float minvel=0.2f;
     private void Update()
     {
-        sprite.flipX = isFacingRight ? rb.velocity.x > minvel : rb.velocity.x < minvel;
+      //  sprite.flipX = isFacingRight ? rb.velocity.x > minvel : rb.velocity.x < minvel;
     }
 }
