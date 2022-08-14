@@ -32,7 +32,7 @@ public class MeleeAttack : MonoBehaviour
     private List<Collider2D> _attackedEnemies = new ();
 
     private AttackToken _token;
-    
+
     private void Update()
     {
         _hitTimer += Time.deltaTime;
@@ -40,6 +40,7 @@ public class MeleeAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (_attacking)
         {
             
