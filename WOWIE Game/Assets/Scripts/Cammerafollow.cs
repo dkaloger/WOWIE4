@@ -8,12 +8,36 @@ public class Cammerafollow : MonoBehaviour
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
     public Vector3 Offset;
+    public Bounds Bounds;
+    public Vector3 min,max;
+
+    Vector2 camerasize;
     void FixedUpdate()
     {
         // Define a target position above and behind the target transform
         Vector3 targetPosition = target.TransformPoint(Offset);
 
         // Smoothly move the camera towards that target position
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        
+        camerasize.x =  + Camera.main.orthographicSize * Screen.width / Screen.height;
+        camerasize.y =  + Camera.main.orthographicSize;
+        Vector3 tmppos;
+       
+
+           // transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        
+        tmppos.x = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime).x , min.x+camerasize.x,max.x-camerasize.x);
+        // tmppos.y = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime).y, (Bounds.center.y - Bounds.extents.y / 2)-camerasize.y, (Bounds.center.y - Bounds.extents.y / 2)+ camerasize.y);
+        tmppos.y = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime).y, min.y + camerasize.y, max.y - camerasize.y);
+        tmppos.z = Offset.z;
+       // print(tmppos);
+        transform.position = tmppos;
+
+
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(Bounds.center, Bounds.extents);
     }
 }

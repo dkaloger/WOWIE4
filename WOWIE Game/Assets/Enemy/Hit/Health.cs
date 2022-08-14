@@ -2,7 +2,7 @@ using System;
 using BulletFury;
 using BulletFury.Data;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 /// <summary>
 /// Keep track of health
 /// </summary>
@@ -75,7 +75,10 @@ public class Health : MonoBehaviour, IHitReceiver
         {
             GetComponent<Animator>().SetBool("dying", dying);
         }
-        
+        if (name.Contains("The AI"))
+        {
+            GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().HIT();
+                }
         if (name.Contains("Enemy") )
         {
             GetComponent<Animator>().SetTrigger("Take damage");

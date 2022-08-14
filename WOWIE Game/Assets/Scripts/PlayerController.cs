@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float sensitivity=1000;
     public Vector2 movement;
     public Vector3 adjustedmovement;
+   public bool Line17;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +106,12 @@ public class PlayerController : MonoBehaviour
                         }
                         if (Helditem.name.Contains("The AI"))
                         {
+                            if(GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove ==false && Line17 == false)
+                            {
+                                Line17 = true;
+                                GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove = true;
+                            }
+                            
                             Helditem.GetComponent<BoxCollider2D>().enabled = false;
                         }
                         

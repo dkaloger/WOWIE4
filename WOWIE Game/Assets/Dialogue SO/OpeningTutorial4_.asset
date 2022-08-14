@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99f469b27f354d87aef7bc239ada0b9, type: 3}
+  m_Name: OpeningTutorial4_
+  m_EditorClassIdentifier: 
+  Pages:
+  - 'Harrison: This painting is beautiful! I''ve not seen anything like it.'
+  - 'Box: An original creation! Just for you!'
+  - 'Harrison: Thank you. I truly appreciate it. Could we make another one? We''ve
+    these raiders on our doorstep...'
+  - 'Box: A fellow creative! Yes, this is excellent! Be my apprentice, will you?'
+  - 'Harrison: That sounds interesting. But. Please please please keep it down. It''s
+    dangerous out here.'
+  - 'Box: NO! GENIUS CANNOT BE CONTAINED!'
+  - 'Harrison: It''s not that it''s- Oh shit. Incoming!'

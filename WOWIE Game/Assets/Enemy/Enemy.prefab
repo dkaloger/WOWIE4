@@ -318,7 +318,7 @@ MonoBehaviour:
   turnSpeed: 0.1
   acceleration: 0.01
   speed: 5
-  stopDistance: 1.25
+  stopDistance: 0.67
   aggroRange: 4
   aggroCooldown: 1
   InRange:
@@ -385,8 +385,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   hitCooldown: 0.5
-  damageOffset: {x: 0.62, y: 0, z: 0}
-  damageRadius: 0.42
+  damageOffset: {x: 0, y: 0.83, z: 0}
+  damageRadius: 1.49
   attackLengthInSeconds: 0.1
   tokensToUse: {fileID: 11400000, guid: 9bf78d017274b403485e321fb772b6b1, type: 2}
   sprite: {fileID: 2325577327437562970}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99f469b27f354d87aef7bc239ada0b9, type: 3}
+  m_Name: OpeningTutorial1_
+  m_EditorClassIdentifier: 
+  Pages:
+  - 'Harrison: God, how long have I been out here? I can''t even see the perimeter
+    fence. I''ve searched so many of these damned scrap piles and... and nothing.'
+  - 'Harrison: My nerves cannot take much more of this. The silence is unnerving
+    and I feel I''ll be attacked any second.'
+  - 'Harrison: (angry grunt) Kal, I blame you for this mess. I''d told you to not
+    try bluffing the raiders. You''ve not the wits to even try. They do not care
+    where you get the payment, but you do not mess with their income. They see through
+    that shit.'
+  - 'Harrison: Now they want their payment AND an extra payment. And you know their
+    ""extra payment"" is always a ""quest"" to find something impossible so they''ve
+    an excuse to... to...'
+  - 'Harrison: ""Give us something created in the old world"" they''d said. You know
+    how rare those artifacts are? Of course not.'
+  - 'Harrison: That was hundreds of years ago.'
+  - 'Harrison: (sighs) This box is quite sturdy. Might be a good stool. Whatever.'
+  - (Harrison tosses the box aside and it starts whirring.)
+  - 'Box: STARTUP INITIATED............ AI ONLINE.'
+  - "Harrison: Oh no no no no no. I should run. Maybe it won't have lasers this time.\"\r"
