@@ -27,6 +27,7 @@ public class PlayerShoot : MonoBehaviour, IHeldItem
         Playeranim.SetBool("HoldingGun", true);
 
         if (Input.GetButton("Fire1"))
-            bullets.Spawn(transform.position, transform.right);
+          //  transform.position + (Vector3)movement.normalized + new Vector3(0.0f, -0.5f, 0f)
+            bullets.Spawn(Playeranim.gameObject.transform.position +  new Vector3(0.0f, -0.3f, 0f), (Vector3)Playeranim.gameObject.GetComponent<PlayerController>().movement.normalized);
     }
 }
