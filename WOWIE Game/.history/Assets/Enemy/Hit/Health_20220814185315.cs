@@ -83,9 +83,6 @@ public class Health : MonoBehaviour, IHitReceiver
         {
             GetComponent<Animator>().SetTrigger("Take damage");
         }
-        if(name.Contains("Sheep")){
-            _currentHealth = 0;
-        }
   
 
         if (CurrentHealth<= 0&& die)

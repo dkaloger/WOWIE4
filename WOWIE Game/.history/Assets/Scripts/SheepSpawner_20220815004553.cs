@@ -18,7 +18,7 @@ public class SheepSpawner : MonoBehaviour
     void Start()
     {
         
-        InvokeRepeating("Spawn",1f,2f);
+        InvokeRepeating("Spawn",1f,2.5f);
     }
 
     // Update is called once per frame

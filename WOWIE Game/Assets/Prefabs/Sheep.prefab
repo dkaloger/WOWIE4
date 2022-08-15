@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -5242875554234953739}
   - component: {fileID: 6281448425037926227}
   - component: {fileID: -2518079511754595023}
+  - component: {fileID: -4041125324533235292}
+  - component: {fileID: 4924440734254137683}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -130,3 +132,47 @@ PolygonCollider2D:
       - {x: -0.14, y: -0.005}
       - {x: 0.19, y: -0.005}
       - {x: 0.17999999, y: -0.175}
+--- !u!114 &-4041125324533235292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097298586407803965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eff0a99550324747bf374bf6fa538f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  die: 1
+  dying: 0
+--- !u!114 &4924440734254137683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097298586407803965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9add1c9d0cf8e4cb28a0121845c457c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletLayersToBeHitBy:
+    serializedVersion: 2
+    m_Bits: 64
+  shape: 0
+  radius: 2
+  size: {x: 1, y: 1, z: 1}
+  destroyBullet: 1
+  center: {x: 0, y: 0, z: 0}
+  pointA: {x: 0, y: 0, z: 0}
+  pointB: {x: 0, y: 0, z: 0}
+  pointC: {x: 0, y: 0, z: 0}
+  OnCollide:
+    m_PersistentCalls:
+      m_Calls: []
+  bounce: 0
+  lifetimeLoss: 0
+  bounciness: 0
