@@ -43,7 +43,7 @@ MonoBehaviour:
     sword! Or knife.'
   - 'Harrison: (That''s a quote from the old world. Killbots are not equipped with
     those...)'
-  - (Press Space to pick up and drop items.)
+  - (Press Space to pick up and drop the AI and other items.)
   - 'Box: Thank you! Would you like a painting as a token of my appreciation? I was
     created to bring your vision to life!'
   - 'Harrison: I... I''ve always wanted to know what the old world was like.'
@@ -65,6 +65,6 @@ MonoBehaviour:
   - 'Box: USE YOUR GUN ! Dont let them get to me (pickup the gun and fire with LMB,or
     throw it at the enemies with Space)'
   - 'Box: Thank you! you really saved my circuits from those fool brutes '
-  - 'Box: Go Explore and bring me minerals to make more paintings ,dont you want
-    to be famous?(there are 11 eisels scattered  around the map)'
+  - 'Box: Go Explore and bring me minerals to make more paintings(there are 11 eisels
+    scattered  around the map),you can refill the Health of the AI with dead sheep'
   - 

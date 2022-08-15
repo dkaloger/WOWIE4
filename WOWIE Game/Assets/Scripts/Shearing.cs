@@ -17,6 +17,7 @@ public class Shearing : MonoBehaviour
     public bool dead = false;
     private float t2 = 0;
     private Vector2 savedPos;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,13 @@ public class Shearing : MonoBehaviour
     }
      private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Contains("Ore") && gameObject.GetComponent<SpriteRenderer>().sprite != shearedsheep && !dead)
+        if (collision.name.Contains("Ore") && GetComponent<Animator>().GetBool("WithFur") && !dead)
         {
             collision.transform.parent.parent.GetComponent<PlayerController>().Helditem = null;
             Destroy(collision.gameObject);
             gameObject.GetComponent<SpriteRenderer>().sprite = shearedsheep;
             Instantiate(wool, new Vector2(collision.transform.parent.parent.GetComponent<Transform>().position.x, collision.transform.parent.parent.GetComponent<Transform>().position.y),Quaternion.identity);
+            GetComponent<Animator>().SetBool("WithFur",false);
             startTimer = true;
         }
        
@@ -37,10 +39,12 @@ public class Shearing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dead){
-            if(t2 == 0){
+        
+          if (dead){
+            GetComponent<Animator>().SetBool("Dead", true);
+            if (t2 == 0){
                 GetComponent<BoxCollider2D>().isTrigger = true;
-                if(GetComponent<SpriteRenderer>().sprite == shearedsheep) gameObject.GetComponent<SpriteRenderer>().sprite = deadShearedSheep;
+                if(!GetComponent<Animator>().GetBool("WithFur")) gameObject.GetComponent<SpriteRenderer>().sprite = deadShearedSheep;
                 else gameObject.GetComponent<SpriteRenderer>().sprite = deadFullSheep;
                 gameObject.tag = "Holdable";
                 savedPos = new Vector2(transform.position.x, transform.position.y);
@@ -69,6 +73,7 @@ public class Shearing : MonoBehaviour
             if(t >= 60){
                 t = 0;
                 gameObject.GetComponent<SpriteRenderer>().sprite = fullSheep;
+                GetComponent<Animator>().SetBool("WithFur",true);
                 startTimer = false;
             }
         }
