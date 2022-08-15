@@ -13,34 +13,22 @@ public class SheepSpawner : MonoBehaviour
     private int localcount;
     public int[] zonesCount = new int[]{0,0,0};
     private float[][] zoneBounds = {new float[]{-12f,15.4f,-7.8f,50f}, new float[]{18.4f,60.3f,-7.8f, 6.2f},new float[]{60.3f, 75.5f, -7.8f,16.9f}};
-    private int[] indivCount = new int[]{0,0,0};
     private bool seen = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         InvokeRepeating("Spawn",1f,2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        int i = -1;
-        if(transform.position.x < 15.4){
-            i = 0;
-        }
-        else if(transform.position.x < 60.3){
-            i = 1;
-        }
-        else if(transform.position.x < 85){
-            i = 2;
-        }
-        Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
         if(!(screenPosition.y > Screen.height || screenPosition.y <0 || screenPosition.x > Screen.width || screenPosition.x < 0)){
             seen = true;
         }else{
             if(seen){
-                Destroy(gameObject);
 
             }
         }
@@ -70,9 +58,6 @@ public class SheepSpawner : MonoBehaviour
             GameObject sh2 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
             GameObject sh3 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
             GameObject sh4 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
-            switch(i){
-                
-            }
             
             var random = new System.Random();
             sh.GetComponent<SpriteRenderer>().flipX = random.Next(2) == 1;
