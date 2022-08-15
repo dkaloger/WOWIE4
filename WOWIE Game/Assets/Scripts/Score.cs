@@ -22,10 +22,10 @@ public class Score : MonoBehaviour
         Timer += Time.deltaTime;
         if(Timer> penaltyTime)
         {
-            score -= Time.deltaTime;
+          //  score -= Time.deltaTime;
         }
-        TimeCounter.text = Mathf.RoundToInt(Timer).ToString() + "s /"+ Mathf.RoundToInt(penaltyTime).ToString()+"s";
-        ScoreCounter.text ="Prestige:"+Mathf.RoundToInt( score).ToString();
+        TimeCounter.text = "Time: " +Mathf.RoundToInt(Timer).ToString() ;
+        ScoreCounter.text ="Completed Paintings:"+Mathf.RoundToInt( score).ToString()+ "/11";
 
         
     }

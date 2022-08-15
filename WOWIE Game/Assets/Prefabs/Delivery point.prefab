@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedc665639bdcbf4a9822906333963cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PaintingValue: 50
+  PaintingValue: 1
   completedEasel: {fileID: 21300000, guid: 512e076f898f840488098f8058bb0e75, type: 3}
   completed: 0
   paintingdisplay: {fileID: 7664485057547409767}

@@ -59,11 +59,11 @@ public class DialogManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             chardelay = 0.00f;
-            endpagedelay = 0.1f;
+            endpagedelay = 3f;
         }
         else
         {
-            chardelay = 0.03f;
+            chardelay = 0.02f;
             endpagedelay = 1f;
         }
         if (current.Pages.Count == page)
@@ -99,8 +99,11 @@ public class DialogManager : MonoBehaviour
         {
            // rn += c;
             box.text += c;
-            
+            if(chardelay > 0.01)
+            {
                 yield return new WaitForSeconds(chardelay);
+            }
+              
 
         }
         if (page == 30)
