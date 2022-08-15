@@ -103,7 +103,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shearedsheep: {fileID: 21300000, guid: 18eeda866453842f4b7f81472ad8e53b, type: 3}
   fullSheep: {fileID: 21300000, guid: 61ca65f43182a45a498d20c50401389b, type: 3}
+  deadShearedSheep: {fileID: 21300000, guid: 200d8ca01065544ec919efcc9d6963cd, type: 3}
+  deadFullSheep: {fileID: 21300000, guid: 57e8c88ff92714d94a20a8cdc7c09564, type: 3}
   wool: {fileID: 2497893423625215745, guid: 6ee95f4797132453c9d092863555de2c, type: 3}
+  sheep: {fileID: 1097298586407803965}
+  deathcloud: {fileID: 6741318516625864668, guid: 6b4d139a598b9ca4c809d49a52055327, type: 3}
   dead: 0
 --- !u!114 &-4041125324533235292
 MonoBehaviour:
