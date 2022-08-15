@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+  deathcloud: {fileID: 6741318516625864668, guid: 6b4d139a598b9ca4c809d49a52055327, type: 3}
   die: 1
   dying: 0
 --- !u!50 &3996158857337090052

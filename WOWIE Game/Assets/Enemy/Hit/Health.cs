@@ -17,7 +17,7 @@ public class Health : MonoBehaviour, IHitReceiver
     #endregion
 
     public float MaxHealth => maxHealth;
-
+    public GameObject deathcloud ;
     // Events - broadcast a message to any objects that are listening
 
     #region Events
@@ -87,8 +87,12 @@ public class Health : MonoBehaviour, IHitReceiver
 
         if (CurrentHealth<= 0&& die)
         {
+            if(deathcloud != null)
+            {
+                Instantiate(deathcloud, transform.position, transform.rotation);
+            }
             dying = true;
-            GetComponent<Animator>().SetTrigger("Die");
+           // GetComponent<Animator>().SetTrigger("Die");
             Destroy(gameObject,0.3f);
            
         }
