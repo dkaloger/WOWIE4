@@ -38,7 +38,7 @@ public class Cammerafollow : MonoBehaviour
     }
     public void ShakeCamera(float mag)
     {          
-        StartCoroutine(ShakeCamera(0.2f,mag));
+        StartCoroutine(ShakeCamera(0.1f,mag));
     }
     
     public IEnumerator ShakeCamera(float dur, float magn)
@@ -49,7 +49,7 @@ public class Cammerafollow : MonoBehaviour
         {
             float x = Random.Range(-0.1f, 0.1f) * magn;
             float y = Random.Range(-0.1f, 0.1f) * magn;
-            transform.localPosition = new Vector3(origPos.x + x,origPos.y+y,origPos.z);
+            transform.localPosition = new Vector3(origPos.x + x,origPos.y+y,origPos.z+z);
             elapsed += Time.deltaTime;
             yield return null;
         }
