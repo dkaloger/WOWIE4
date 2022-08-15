@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
 
         health.OnHit += HealthUpdate;
     }
-    
+
     private void OnDisable()
     {
         if (health is ShieldedHealth shieldedHealth)
