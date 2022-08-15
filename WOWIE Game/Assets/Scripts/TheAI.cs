@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TheAI : MonoBehaviour
 {
-    public int StoredOre, RequiredOre;
+    public int StoredWool, RequiredWool;
     public GameObject Painting;
     public GameObject workedonpainting;
     public bool line21;
@@ -15,15 +15,13 @@ public class TheAI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.name.Contains("Ore"))
+        if (collision.name.Contains("Wool"))
         {
-            
-            StoredOre++;
+            StoredWool++;
             collision.transform.parent.parent.GetComponent<PlayerController>().Helditem = null;
             Destroy(collision.gameObject);
             GetComponent<AudioSource>().Play();
-            if (StoredOre == 1)
+            if (StoredWool == 1)
             {
                 workedonpainting= Instantiate(Painting, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
                 workedonpainting.transform.parent = transform.GetChild(0);
@@ -37,7 +35,7 @@ public class TheAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(StoredOre >= RequiredOre)
+        if(StoredWool >= RequiredWool)
         {
             if (GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove == false && line21 == false)
             {
@@ -46,7 +44,7 @@ public class TheAI : MonoBehaviour
             }
 
             GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().paintingcreated();
-            StoredOre = 0;
+            StoredWool = 0;
         }
     }
 }
