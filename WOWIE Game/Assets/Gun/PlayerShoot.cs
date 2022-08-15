@@ -26,8 +26,12 @@ public class PlayerShoot : MonoBehaviour, IHeldItem
         if (!_held) return;
         Playeranim.SetBool("HoldingGun", true);
 
+        Vector3 target = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        target.z = 0;
+        var dir = target;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (Input.GetButton("Fire1"))
           //  transform.position + (Vector3)movement.normalized + new Vector3(0.0f, -0.5f, 0f)
-            bullets.Spawn(Playeranim.gameObject.transform.position +  new Vector3(0.0f, -0.3f, 0f), (Vector3)Playeranim.gameObject.GetComponent<PlayerController>().movement.normalized);
-    }
+            bullets.Spawn(Playeranim.gameObject.transform.position +  new Vector3(0.0f, -0.3f, 0f), target.normalized);
+    }//(Vector3)Playeranim.gameObject.GetComponent<PlayerController>().movement.normalized
 }
