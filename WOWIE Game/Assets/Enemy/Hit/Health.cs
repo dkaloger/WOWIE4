@@ -75,7 +75,7 @@ public class Health : MonoBehaviour, IHitReceiver
         // - doing it here means we only have to do the divide once, and division is a computationally expensive operation
         _healthPercentage = _currentHealth / maxHealth;
 
-        if (damagestates != null)
+        if (damagestates.Length > 0)
         {
             GetComponent<SpriteRenderer>().sprite = damagestates[Mathf.Clamp( Mathf.FloorToInt(HealthPercentage * 4 -0.01f),0,3)];
         }

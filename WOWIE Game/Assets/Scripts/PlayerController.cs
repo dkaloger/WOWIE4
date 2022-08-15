@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
 
-        if (Helditem != null)
+        if (Helditem != null && (Helditem.name.Contains("Wool") || Helditem.name.Contains("Sheep")))
         {
 
             if (GetComponent<SpriteRenderer>().sprite.name.Contains("back"))

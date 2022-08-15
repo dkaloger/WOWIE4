@@ -573,7 +573,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262776247
 GameObject:
@@ -731,7 +731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655728883421624179, guid: 20f83cbe277d84b04b6d4714ee235eb0, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 655728883421624179, guid: 20f83cbe277d84b04b6d4714ee235eb0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -886,7 +886,7 @@ Transform:
   - {fileID: 695852861}
   - {fileID: 702682357}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &437271864
 PrefabInstance:
@@ -1044,7 +1044,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &454215971
 Animator:
@@ -2878,7 +2878,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &746276242 stripped
 Transform:
@@ -3144,7 +3144,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b5d79c4a1f73014ca1036bcbbdf4c9d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.231
+  m_Volume: 0.094
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5467,7 +5467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458221011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.971226, y: 22.716032, z: 0.030097706}
+  m_LocalPosition: {x: 34.961, y: 22.692, z: 0.030097706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6121,7 +6121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7549843161400811183, guid: 1f833ed833d76409895f47741879fad6, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7549843161400811183, guid: 1f833ed833d76409895f47741879fad6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6566,7 +6566,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4477884117092883457, guid: 2ec8bd198b3e1a34ca30fd59f101cba1, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4477884117092883457, guid: 2ec8bd198b3e1a34ca30fd59f101cba1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6608,6 +6608,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4477884117092883462, guid: 2ec8bd198b3e1a34ca30fd59f101cba1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 633f705ac4290ad419667ad5097ef2f0, type: 3}
     - target: {fileID: 4477884117092883463, guid: 2ec8bd198b3e1a34ca30fd59f101cba1, type: 3}
       propertyPath: target
       value: 
@@ -6651,7 +6655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574537, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574537, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6710,6 +6714,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7044614496908815600, guid: 91b981f256952714c932927c1f3f1e38, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76350d0b01fa80447a554426a29793a9, type: 3}
     - target: {fileID: 7044614496908815604, guid: 91b981f256952714c932927c1f3f1e38, type: 3}
       propertyPath: m_Name
       value: Pickaxe

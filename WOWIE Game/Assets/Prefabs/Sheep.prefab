@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4924440734254137683}
   - component: {fileID: 4659643518130961146}
   - component: {fileID: -6592476931449432409}
+  - component: {fileID: 1536685305633347007}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -125,6 +126,7 @@ MonoBehaviour:
   deathcloud: {fileID: 0}
   die: 1
   dying: 0
+  damagestates: []
 --- !u!114 &4924440734254137683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +215,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.42, y: 0.36}
   m_EdgeRadius: 0
+--- !u!95 &1536685305633347007
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097298586407803965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2df7875ea4537da458690bee6ba7d696, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
