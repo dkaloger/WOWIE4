@@ -40,7 +40,7 @@ public class TheAI : MonoBehaviour
     {
         if(StoredWool >= RequiredWool)
         {
-            if (dialogManager.canmove == false && line21 == false)
+            if (dialogManager.canmove == false && line21 == false&&GameObject.Find("Player").GetComponent<PlayerController>().Line17 == true)
             {
                 line21 = true;
                 dialogManager.canmove = true;
