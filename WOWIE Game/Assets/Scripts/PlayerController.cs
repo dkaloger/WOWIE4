@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
         //Hold object
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            var prevHeldItem = Helditem;
             //drop
             if (Helditem != null && !Helditem.name.Contains("Painting"))
             {
@@ -156,13 +157,13 @@ public class PlayerController : MonoBehaviour
                         itemObject.Drop();
 
                 Helditem = null;
-
             }
             
             if (Helditem == null)
             {
                 foreach (var item in GameObject.FindGameObjectsWithTag("Holdable"))
                 {
+                    if (item == prevHeldItem) continue;
                     if (Vector2.Distance(
                             transform.position + (Vector3)movement.normalized + new Vector3(0.0f, -0.5f, 0f),
                             item.transform.position) < pickupRange)
