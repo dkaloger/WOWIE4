@@ -38,7 +38,7 @@ public class Cammerafollow : MonoBehaviour
     }
     public void ShakeCamera(float mag)
     {          
-        StartCoroutine(ShakeCamera(0.2f,mag));
+        StartCoroutine(ShakeCamera(0.1f,mag));
     }
     
     public IEnumerator ShakeCamera(float dur, float magn)
