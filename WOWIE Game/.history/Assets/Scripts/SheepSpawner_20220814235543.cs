@@ -11,14 +11,14 @@ public class SheepSpawner : MonoBehaviour
     private Vector2 currentPos;
     private float timer;
     private int localcount;
-    public int[] zonesCount = new int[]{0,0,0};
+    private int[] zonesCount = new int[]{0,0,0};
     private float[][] zoneBounds = {new float[]{-12f,15.4f,-7.8f,50f}, new float[]{18.4f,60.3f,-7.8f, 6.2f},new float[]{60.3f, 75.5f, -7.8f,16.9f}};
 
     // Start is called before the first frame update
     void Start()
     {
         
-        InvokeRepeating("Spawn",1f,2.5f);
+        InvokeRepeating("Spawn",1f,1f);
     }
 
     // Update is called once per frame
@@ -47,8 +47,7 @@ public class SheepSpawner : MonoBehaviour
                 screenPosition = camera.WorldToScreenPoint(sheepPos);
             }
             GameObject sh = Instantiate(sheep, sheepPos, Quaternion.identity);
-            var random = new System.Random();
-            sh.GetComponent<SpriteRenderer>().flipX = random.Next(2) == 1;
+            sh.GetComponent<SpriteRenderer>().
             zonesCount[i]++;
             
             
