@@ -94,7 +94,11 @@ public class Health : MonoBehaviour, IHitReceiver
             }
             dying = true;
            // GetComponent<Animator>().SetTrigger("Die");
-            Destroy(gameObject,0.3f);
+            if(!name.Contains("Sheep")){
+                Destroy(gameObject,0.3f);
+            }else{
+                GetComponent<Shearing>().dead = true;
+            }
            
         }
         InvokeHitEvent(data.Damage > 0);
@@ -120,4 +124,5 @@ public class Health : MonoBehaviour, IHitReceiver
         // tell everything that cares "hey, I've been hit"
         OnHit?.Invoke(_healthPercentage, isHit);
     }
+    
 }
