@@ -291,6 +291,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a4b7c2e05da8643919a4e18a1a6bb6, type: 3}
+--- !u!1 &205671375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205671377}
+  - component: {fileID: 205671376}
+  m_Layer: 0
+  m_Name: SheepSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &205671376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205671375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935cdfd9046ed4ee18ae5fd73f4a603e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheep: {fileID: 1097298586407803965, guid: 32d853b7949a44a0a9e7d5aa2ccc5e26, type: 3}
+  player: {fileID: 433435510}
+  camera: {fileID: 519420031}
+--- !u!4 &205671377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205671375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.223255, y: 21.918028, z: -0.29872528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224358141
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,10 +1020,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.00055248616
+    y: 0.13683009
+    width: 1.001105
+    height: 0.8209806
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6459,8 +6506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145d6f42dc309e549932ea95d4fd922d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StoredOre: 0
-  RequiredOre: 4
+  StoredWool: 0
+  RequiredWool: 4
   Painting: {fileID: 537353045132107172, guid: 865fc4fce64438649a2e4c864e9d8c7c, type: 3}
   workedonpainting: {fileID: 0}
   line21: 0
@@ -8067,6 +8114,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4182205898598182070, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6970834113322634122, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: m_Camera
       value: 
