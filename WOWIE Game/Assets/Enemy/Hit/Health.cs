@@ -81,6 +81,7 @@ public class Health : MonoBehaviour, IHitReceiver
                 }
         if (name.Contains("Enemy") )
         {
+            Camera.main.GetComponent<Cammerafollow>().ShakeCamera(1);
             GetComponent<Animator>().SetTrigger("Take damage");
         }
   
