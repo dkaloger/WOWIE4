@@ -10,9 +10,12 @@ public class PlayerShoot : MonoBehaviour, IHeldItem
     private bool _held = false;
     private static readonly int HoldingGun = Animator.StringToHash("HoldingGun");
 
+    private PlayerController controller;
+
     private void Start()
     {
         Playeranim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        controller = Playeranim.gameObject.GetComponent<PlayerController>();
     }
 
     public void Pickup()
@@ -36,6 +39,8 @@ public class PlayerShoot : MonoBehaviour, IHeldItem
         var dir = target;
         if (Input.GetButton("Fire1"))
           //  transform.position + (Vector3)movement.normalized + new Vector3(0.0f, -0.5f, 0f)
-            bullets.Spawn(Playeranim.gameObject.transform.position +  new Vector3(0.0f, -0.3f, 0f), target.normalized);
+            bullets.Spawn(Playeranim.gameObject.transform.position, (Vector3)controller.movement.normalized);
+
+
     }//(Vector3)Playeranim.gameObject.GetComponent<PlayerController>().movement.normalized
 }

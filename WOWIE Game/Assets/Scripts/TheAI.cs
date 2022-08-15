@@ -8,10 +8,13 @@ public class TheAI : MonoBehaviour
     public GameObject Painting;
     public GameObject workedonpainting;
     public bool line21;
+
+    private DialogManager dialogManager;
     // Start is called before the first frame update
     void Start()
     {
         
+        dialogManager = GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,13 +40,13 @@ public class TheAI : MonoBehaviour
     {
         if(StoredWool >= RequiredWool)
         {
-            if (GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove == false && line21 == false)
+            if (dialogManager.canmove == false && line21 == false&&GameObject.Find("Player").GetComponent<PlayerController>().Line17 == true)
             {
                 line21 = true;
-                GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove = true;
+                dialogManager.canmove = true;
             }
 
-            GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().paintingcreated();
+            dialogManager.paintingcreated();
             StoredWool = 0;
         }
     }
