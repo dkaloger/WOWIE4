@@ -6,17 +6,34 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pausedSystem;
+    [SerializeField] private GameObject deathScreen;
+    [SerializeField] private Health printerHealth;
+
+
     private bool isPaused;
+    private bool gameOver;
 
     void Awake()
     {
         SetTimeScale(1.0f);
     }
 
+    private void OnEnable()
+    {
+        printerHealth.OnHit += OnHit;
+    }
+
+    private void OnDisable()
+    {
+        printerHealth.OnHit -= OnHit;
+    }
+
 
     void Update()
     {
         if(pausedSystem == null) return;
+
+        if (gameOver) return;
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -32,6 +49,20 @@ public class GameManager : MonoBehaviour
                 pausedSystem.SetActive(false);
                 SetTimeScale(1.0f);
             }
+        }
+    }
+
+    public void ShowDeathScreen()
+    {
+        gameOver = true;
+        deathScreen.SetActive(true);
+    }
+
+    void OnHit(float healthPercent, bool isHit)
+    {
+        if(healthPercent < 0.0f)
+        {
+            ShowDeathScreen();
         }
     }
 
