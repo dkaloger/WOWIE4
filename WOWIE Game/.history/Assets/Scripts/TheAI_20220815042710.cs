@@ -34,9 +34,7 @@ public class TheAI : MonoBehaviour
 
         }
         if (collision.name.Contains("Sheep") && collision.GetComponent<Shearing>().dead){
-            GetComponent<IHitReceiver>().ReceiveHit(new HitData
-            {
-                Damage = -75
+            GetComponent<IHitReceiver>().ReceiveHit(new Data{Damage = -200;
             });
             Destroy(collision.gameObject);
         }
