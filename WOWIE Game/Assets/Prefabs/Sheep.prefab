@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  deathcloud: {fileID: 0}
   die: 1
   dying: 0
 --- !u!114 &4924440734254137683
@@ -161,12 +162,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLayersToBeHitBy:
     serializedVersion: 2
-    m_Bits: 64
-  shape: 0
+    m_Bits: 256
+  shape: 1
   radius: 2
-  size: {x: 1, y: 1, z: 1}
+  size: {x: 0.35, y: 0.27, z: 1}
   destroyBullet: 1
-  center: {x: 0, y: 0, z: 0}
+  center: {x: 0, y: -0.18, z: 0}
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
   pointC: {x: 0, y: 0, z: 0}
