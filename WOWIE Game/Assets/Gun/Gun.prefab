@@ -170,6 +170,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageToDeal: 10
   throwForce: 1000
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 128
+  hitRadius: 0.6
 --- !u!1 &7549843161629442667
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,13 @@ public class ThrowHeldItem : MonoBehaviour, IHeldItem
     
     [SerializeField] private float throwForce = 10f;
 
-    private Transform _parent;
+    [SerializeField] private LayerMask layersToHit;
+    [SerializeField] private float hitRadius = 0.6f;
     
+    private Transform _parent;
+
+    private Collider2D[] _hit = new Collider2D[16];
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -37,11 +42,15 @@ public class ThrowHeldItem : MonoBehaviour, IHeldItem
         DOVirtual.DelayedCall(0.25f, () => _collider.enabled = true);
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void FixedUpdate()
     {
-        if (col.collider.CompareTag("Enemy"))
+        if (!_rb.simulated || _rb.velocity.sqrMagnitude < 1)
+            return;
+
+        var numHit = Physics2D.OverlapCircleNonAlloc(transform.position, hitRadius, _hit, layersToHit);
+        for (int i = 0; i < numHit; ++i)
         {
-            col.collider.GetComponent<IHitReceiver>().ReceiveHit(new HitData
+            _hit[i].GetComponentInParent<IHitReceiver>()?.ReceiveHit(new HitData
             {
                 Damage = damageToDeal
             });
