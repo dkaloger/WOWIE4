@@ -77,8 +77,7 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
-        if (Helditem != null && Helditem.name.Contains("Wool"))
-        {
+        if(Helditem != null && (Helditem.name.Contains("Wool")||Helditem.name.Contains("Sheep"))){
             anim.SetBool("Carrying artwork", true);
             if (GetComponent<SpriteRenderer>().sprite.name.Contains("back"))
             {
@@ -89,15 +88,15 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Helditem.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                if (GetComponent<SpriteRenderer>().sprite.name.Contains("forward"))
-                    Helditem.GetComponent<Transform>().position =
-                        new Vector2(transform.position.x, transform.position.y - 0.3f);
-                if (GetComponent<SpriteRenderer>().sprite.name.Contains("right"))
-                    Helditem.GetComponent<Transform>().position =
-                        new Vector2(transform.position.x + 0.13f, transform.position.y - 0.2f);
-                if (GetComponent<SpriteRenderer>().sprite.name.Contains("left"))
-                    Helditem.GetComponent<Transform>().position =
-                        new Vector2(transform.position.x - 0.13f, transform.position.y - 0.2f);
+                if(GetComponent<SpriteRenderer>().sprite.name.Contains("forward")) Helditem.GetComponent<Transform>().position = new Vector2(transform.position.x,transform.position.y-0.3f);
+                if(GetComponent<SpriteRenderer>().sprite.name.Contains("right")) {
+                    Helditem.GetComponent<Transform>().position = new Vector2(transform.position.x+0.13f,transform.position.y-0.2f);
+                    Helditem.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                if(GetComponent<SpriteRenderer>().sprite.name.Contains("left")) {
+                    Helditem.GetComponent<Transform>().position = new Vector2(transform.position.x-0.13f,transform.position.y-0.2f);
+                    Helditem.GetComponent<SpriteRenderer>().flipX = false;
+                }
             }
 
         }
@@ -176,8 +175,7 @@ public class PlayerController : MonoBehaviour
 
                         if (Helditem.GetComponent<SpriteRenderer>() != null)
                         {
-                            if (!Helditem.name.Contains("Wool"))
-                                Helditem.GetComponent<SpriteRenderer>().enabled = false;
+                            if(!Helditem.name.Contains("Wool") && !Helditem.name.Contains("Sheep")) Helditem.GetComponent<SpriteRenderer>().enabled = false;
                             print("picked");
                         }
 
