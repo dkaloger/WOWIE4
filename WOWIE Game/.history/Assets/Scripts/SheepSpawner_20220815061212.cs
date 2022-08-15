@@ -40,8 +40,7 @@ public class SheepSpawner : MonoBehaviour
             seen = true;
         }else{
             if(seen){
-                Destroy(gameObject);
-                indivCount[i]++;
+                Destroy(gameObject)
             }
         }
         

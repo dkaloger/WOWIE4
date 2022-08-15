@@ -41,7 +41,7 @@ public class SheepSpawner : MonoBehaviour
         }else{
             if(seen){
                 Destroy(gameObject);
-                indivCount[i]++;
+                indivCount
             }
         }
         
