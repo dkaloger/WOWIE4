@@ -11,10 +11,12 @@ public class EnemySpawnner : MonoBehaviour
     public float wavecooldown;
     public int wavesizeMin, wavesizeMax;
     public bool line30;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+
+    public void SpawnFirstWave()
+    {
+        line30 = true;
+        t = float.MaxValue;
     }
 
     // Update is called once per frame
