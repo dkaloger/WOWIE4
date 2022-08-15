@@ -74,7 +74,7 @@ public class DialogManager : MonoBehaviour
             endpagedelay = 1f;
         }
 
-        if (current.Pages.Count == page)
+        if (34 == page)
         {
             introcompleted = true;
             box.text = "";
@@ -123,7 +123,7 @@ public class DialogManager : MonoBehaviour
         
         if (page == 30 && !introcompleted)
         {
-            introcompleted = true;
+           // introcompleted = true;
             GameObject.Find("Player").GetComponent<EnemySpawnner>().SpawnFirstWave();
         }
         coroutinerunning = false;
