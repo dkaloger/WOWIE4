@@ -48,7 +48,7 @@ public class SheepSpawner : MonoBehaviour
             }
             GameObject sh = Instantiate(sheep, sheepPos, Quaternion.identity);
             var random = new System.Random();
-            sh.GetComponent<SpriteRenderer>().flipX = random.Next(2) == 1;
+            sh.GetComponent<SpriteRenderer>().flipX = random.Next(2);
             zonesCount[i]++;
             
             

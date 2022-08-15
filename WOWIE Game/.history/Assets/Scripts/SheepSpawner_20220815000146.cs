@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Random;
 
 public class SheepSpawner : MonoBehaviour
 {
@@ -47,8 +48,8 @@ public class SheepSpawner : MonoBehaviour
                 screenPosition = camera.WorldToScreenPoint(sheepPos);
             }
             GameObject sh = Instantiate(sheep, sheepPos, Quaternion.identity);
-            var random = new System.Random();
-            sh.GetComponent<SpriteRenderer>().flipX = random.Next(2) == 1;
+            var random = new Random();
+            sh.GetComponent<SpriteRenderer>().flipX = random.Next(2);
             zonesCount[i]++;
             
             
