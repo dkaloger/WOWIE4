@@ -33,15 +33,7 @@ public class TheAI : MonoBehaviour
             workedonpainting.GetComponent<painting>().delivered++;
 
         }
-        if (collision.name.Contains("Sheep") && collision.GetComponent<Shearing>().dead){
-            float theHealth = GetComponent<Health>().GetHealth()+75;
-            Debug.Log(theHealth);
-            if(theHealth > 300){
-                theHealth = 300;
-            }
-            GetComponent<Health>().SetHealth(0);
-            Destroy(collision.gameObject);
-        }
+        if (collision.name.Contains("Wool"))
        
     }
     // Update is called once per frame

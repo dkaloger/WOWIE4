@@ -126,7 +126,7 @@ public class Health : MonoBehaviour, IHitReceiver
     public void SetHealth(float f){
         _currentHealth = f;
     }
-    public float GetHealth(){
+    public void GetHealth(){
         return _currentHealth;
     }
 }

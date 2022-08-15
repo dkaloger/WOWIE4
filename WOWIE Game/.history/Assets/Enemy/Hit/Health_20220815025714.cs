@@ -96,7 +96,7 @@ public class Health : MonoBehaviour, IHitReceiver
             if(!name.Contains("Sheep")){
                 Destroy(gameObject,0.3f);
             }else{
-                GetComponent<Shearing>().dead = true;
+                GetComponent<SpriteRenderer>()
             }
            
         }
@@ -122,11 +122,5 @@ public class Health : MonoBehaviour, IHitReceiver
     {
         // tell everything that cares "hey, I've been hit"
         OnHit?.Invoke(_healthPercentage, isHit);
-    }
-    public void SetHealth(float f){
-        _currentHealth = f;
-    }
-    public float GetHealth(){
-        return _currentHealth;
     }
 }

@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if(GetComponent<SpriteRenderer>().sprite.name.Contains("left")) {
                     Helditem.GetComponent<Transform>().position = new Vector2(transform.position.x-0.13f,transform.position.y-0.2f);
-                    Helditem.GetComponent<SpriteRenderer>().flipX = false;
+                    Helditem.GetComponent<SpriteRenderer>().flipX = Helditem.GetComponent<SpriteRenderer>().flipX;
                 }
             }
             

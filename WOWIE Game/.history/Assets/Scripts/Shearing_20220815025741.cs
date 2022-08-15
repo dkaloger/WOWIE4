@@ -18,7 +18,7 @@ public class Shearing : MonoBehaviour
     }
      private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Contains("Ore") && gameObject.GetComponent<SpriteRenderer>().sprite != shearedsheep && !dead)
+        if (collision.name.Contains("Ore") && gameObject.GetComponent<SpriteRenderer>().sprite != shearedsheep)
         {
             collision.transform.parent.parent.GetComponent<PlayerController>().Helditem = null;
             Destroy(collision.gameObject);
@@ -31,11 +31,6 @@ public class Shearing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dead){
-            GetComponent<PolygonCollider2D>().isTrigger = true;
-            gameObject.GetComponent<SpriteRenderer>().sprite = shearedsheep;
-            gameObject.tag = "Holdable";
-        }
         if(startTimer){
             t+=Time.deltaTime*1f;
             if(t >= 60){

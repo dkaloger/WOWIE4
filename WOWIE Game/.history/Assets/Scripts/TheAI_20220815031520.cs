@@ -39,8 +39,7 @@ public class TheAI : MonoBehaviour
             if(theHealth > 300){
                 theHealth = 300;
             }
-            GetComponent<Health>().SetHealth(0);
-            Destroy(collision.gameObject);
+            GetComponent<Health>().SetHealth(300);
         }
        
     }

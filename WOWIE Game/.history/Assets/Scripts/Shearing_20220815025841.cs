@@ -31,11 +31,6 @@ public class Shearing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dead){
-            GetComponent<PolygonCollider2D>().isTrigger = true;
-            gameObject.GetComponent<SpriteRenderer>().sprite = shearedsheep;
-            gameObject.tag = "Holdable";
-        }
         if(startTimer){
             t+=Time.deltaTime*1f;
             if(t >= 60){

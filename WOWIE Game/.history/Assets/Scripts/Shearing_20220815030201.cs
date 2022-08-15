@@ -32,9 +32,8 @@ public class Shearing : MonoBehaviour
     void Update()
     {
         if(dead){
-            GetComponent<PolygonCollider2D>().isTrigger = true;
+            Debug.Log("Sheep Died2");
             gameObject.GetComponent<SpriteRenderer>().sprite = shearedsheep;
-            gameObject.tag = "Holdable";
         }
         if(startTimer){
             t+=Time.deltaTime*1f;

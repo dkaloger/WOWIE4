@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2518079511754595023}
   - component: {fileID: -4041125324533235292}
   - component: {fileID: 4924440734254137683}
+  - component: {fileID: 4659643518130961146}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   shearedsheep: {fileID: 21300000, guid: 18eeda866453842f4b7f81472ad8e53b, type: 3}
   fullSheep: {fileID: 21300000, guid: 61ca65f43182a45a498d20c50401389b, type: 3}
   wool: {fileID: 2497893423625215745, guid: 6ee95f4797132453c9d092863555de2c, type: 3}
+  dead: 0
 --- !u!60 &-2518079511754595023
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eff0a99550324747bf374bf6fa538f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   deathcloud: {fileID: 0}
   die: 1
   dying: 0
@@ -173,7 +175,40 @@ MonoBehaviour:
   pointC: {x: 0, y: 0, z: 0}
   OnCollide:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4041125324533235292}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: OnBulletHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bounce: 0
   lifetimeLoss: 0
   bounciness: 0
+--- !u!50 &4659643518130961146
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097298586407803965}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

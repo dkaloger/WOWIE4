@@ -34,13 +34,10 @@ public class TheAI : MonoBehaviour
 
         }
         if (collision.name.Contains("Sheep") && collision.GetComponent<Shearing>().dead){
-            float theHealth = GetComponent<Health>().GetHealth()+75;
-            Debug.Log(theHealth);
-            if(theHealth > 300){
-                theHealth = 300;
+            GetComponent<Health>()._currentHealth += 75;
+            if(GetComponent<Health>()._currentHealth > 300){
+                
             }
-            GetComponent<Health>().SetHealth(0);
-            Destroy(collision.gameObject);
         }
        
     }
