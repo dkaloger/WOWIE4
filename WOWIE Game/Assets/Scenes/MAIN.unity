@@ -8682,7 +8682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574536, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: m_LinearDrag
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574537, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: m_RootOrder
@@ -8734,11 +8734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574539, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: speed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574539, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: maxspeed
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574539, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: SprintCooldown
@@ -8746,7 +8746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574539, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: SprintMultiplier
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6970834113547574540, guid: 9fb6337faabf0e544a87a089ea475d31, type: 3}
       propertyPath: m_Name
