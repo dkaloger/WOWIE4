@@ -15,12 +15,12 @@ public class EnemyArrow : MonoBehaviour
     {
         if(GameObject.FindWithTag("Enemy") != null)
         {
-            GetComponent<SpriteRenderer>().enabled = true;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             transform.LookAt(GameObject.FindWithTag("Enemy").transform);
         }
         else
         {
-            GetComponent<SpriteRenderer>().enabled = false;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
         
        // transform.rotation = 

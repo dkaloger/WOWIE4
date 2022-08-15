@@ -77,7 +77,8 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
-        if(Helditem != null){
+        if (Helditem != null)
+        {
             anim.SetBool("Carrying artwork", true);
             if (GetComponent<SpriteRenderer>().sprite.name.Contains("back"))
             {
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
                     Helditem.GetComponent<SpriteRenderer>().flipX = false;
                 }
             }
+
         }
 
 
