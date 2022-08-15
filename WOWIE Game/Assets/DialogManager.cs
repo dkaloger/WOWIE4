@@ -13,7 +13,7 @@ public class DialogManager : MonoBehaviour
     public int page;
     public bool canmove = true;
     public bool introcompleted = false;
-
+    public AudioSource audiosrc;
     public bool coroutinerunning;
     
     // Start is called before the first frame update
@@ -54,6 +54,7 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audiosrc.enabled = coroutinerunning && towrite.Contains("Box"); 
         if (page == 32 && !canmove)
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length < 2)
@@ -107,6 +108,7 @@ public class DialogManager : MonoBehaviour
         {
             // rn += c;
             box.text += c;
+            coroutinerunning = true;
             if (chardelay > 0.01)
             {
                 yield return new WaitForSeconds(chardelay);
@@ -124,9 +126,9 @@ public class DialogManager : MonoBehaviour
             introcompleted = true;
             GameObject.Find("Player").GetComponent<EnemySpawnner>().SpawnFirstWave();
         }
-        
-        yield return new WaitForSeconds(Input.GetKey(KeyCode.Return) && !introcompleted ? endpagedelay / 5f : endpagedelay);
         coroutinerunning = false;
+        yield return new WaitForSeconds(Input.GetKey(KeyCode.Return) && !introcompleted ? endpagedelay / 5f : endpagedelay);
+        
         if (page == 17 || page == 21 || page == 31)
         {
             canmove = false;
