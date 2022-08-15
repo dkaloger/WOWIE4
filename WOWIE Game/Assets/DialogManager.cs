@@ -10,7 +10,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI box;
     public string towrite;
     public float chardelay,endpagedelay;
-    int page;
+    public int page;
     public bool canmove =true;
     public bool introcompleted=false;
     public bool coroutinerunning;
@@ -49,16 +49,16 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(page == 31 &&!canmove)
+        if(page == 32 && !canmove)
         {
-            if(GameObject.FindGameObjectWithTag("Enemy") == null)
+            if(GameObject.FindGameObjectsWithTag("Enemy").Length < 2)
             {
                 canmove = true;
             }
         }
         if (Input.GetKey(KeyCode.Return))
         {
-            chardelay = 0.01f;
+            chardelay = 0.00f;
             endpagedelay = 0.1f;
         }
         else

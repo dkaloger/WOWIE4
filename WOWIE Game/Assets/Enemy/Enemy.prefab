@@ -317,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 0.1
   acceleration: 0.01
-  speed: 5
+  speed: 2
   stopDistance: 0.67
   aggroRange: 4
   aggroCooldown: 1

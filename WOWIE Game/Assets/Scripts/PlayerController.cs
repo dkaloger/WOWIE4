@@ -22,7 +22,14 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-   
+    private void FixedUpdate()
+    {
+        if (Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y) < maxspeed)
+        {
+            rb.AddForce(transform.up * (Input.GetAxis("Vertical") * speed ));
+            rb.AddForce(transform.right * (Input.GetAxis("Horizontal") * speed ));
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -43,15 +50,20 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("carrying artwork", false);
 
         }
+       
 
-            if (Mathf.Abs( Input.GetAxis("Horizontal")) -0.2f > 0 || Mathf.Abs(Input.GetAxis("Vertical")) - 0.2f > 0)
+        if (Mathf.Abs( Input.GetAxis("Horizontal")) -0.2f > 0 || Mathf.Abs(Input.GetAxis("Vertical")) - 0.2f > 0)
         {
             movement.x = Input.GetAxis("Horizontal");
             movement.y = Input.GetAxis("Vertical");
         }
-       
-           // adjustedmovement.x =Mathf.Clamp( movement.normalized  ;
-        
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) - 0.2f > 0 || Mathf.Abs(Input.GetAxis("Vertical")) - 0.2f > 0 && anim.GetBool("HoldingGun"))
+        {
+            movement.x = Input.GetAxis("Horizontal");
+            movement.y = Input.GetAxis("Vertical");
+        }
+        // adjustedmovement.x =Mathf.Clamp( movement.normalized  ;
+
 
         //   anim.SetBool("Imovementdle", true);
 
@@ -69,17 +81,13 @@ public class PlayerController : MonoBehaviour
         //}
         //  anim.SetBool("Idle", false);
         //movement
-        if (Mathf.Abs(rb.velocity.x)+Mathf.Abs( rb.velocity.y) < maxspeed)
-        {
-            rb.AddForce(transform.up * (Input.GetAxis("Vertical") * speed * Time.deltaTime));
-            rb.AddForce(transform.right * (Input.GetAxis("Horizontal") * speed * Time.deltaTime));
-        }
+        
         SprintT += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift)|| Input.GetKeyDown(KeyCode.RightShift) )
         {
             if(SprintCooldown< SprintT)
             {
-                rb.AddForce( movement * speed * Time.deltaTime*SprintMultiplier);
+                rb.AddForce( movement * speed *SprintMultiplier);
                 
                 SprintT = 0;
             }
