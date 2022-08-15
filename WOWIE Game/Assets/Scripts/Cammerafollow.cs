@@ -10,7 +10,8 @@ public class Cammerafollow : MonoBehaviour
     public Vector3 Offset;
     public Bounds Bounds;
     public Vector3 min,max;
-
+    Vector3 shake;
+    public Vector3 shaking;
     Vector2 camerasize;
     void FixedUpdate()
     {
@@ -26,16 +27,19 @@ public class Cammerafollow : MonoBehaviour
 
            // transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         
-        tmppos.x = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime).x , min.x+camerasize.x,max.x-camerasize.x);
+        tmppos.x = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition+ shake, ref velocity, smoothTime).x , min.x+camerasize.x,max.x-camerasize.x);
         // tmppos.y = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime).y, (Bounds.center.y - Bounds.extents.y / 2)-camerasize.y, (Bounds.center.y - Bounds.extents.y / 2)+ camerasize.y);
-        tmppos.y = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime).y, min.y + camerasize.y, max.y - camerasize.y);
+        tmppos.y = Mathf.Clamp(Vector3.SmoothDamp(transform.position, targetPosition + shake, ref velocity, smoothTime).y, min.y + camerasize.y, max.y - camerasize.y);
         tmppos.z = Offset.z;
        // print(tmppos);
         transform.position = tmppos;
-
+        shake = Vector3.zero;
 
     }
-
+    public void ShakeCamera(float mag)
+    {          
+                shake = new Vector3(Random.Range(shaking.x, shaking.y) * shaking.z* mag, Random.Range(shaking.x, shaking.y) * shaking.z* mag, 0);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(Bounds.center, Bounds.extents);
