@@ -75,3 +75,4 @@ crashlytics-build.properties
 /[Aa]ssets/Plugins/Editor/JetBrains*
 /**/.idea/*
 *.DS_Store
+WOWIE Game/.history/Assets/Scripts/PlayerController_20220814185315.cs
