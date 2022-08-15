@@ -372,7 +372,7 @@ namespace BulletFury
                 return;
             // reset the current time
             _currentTime = 0;
-            
+            GetComponent<AudioSource>().Play();
             if (gameObject.activeInHierarchy)
                 // start the spawning - it's a coroutine so we can do burst shots over time 
                 StartCoroutine(SpawnIE(position, forward));
