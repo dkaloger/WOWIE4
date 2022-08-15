@@ -144,9 +144,10 @@ namespace BulletFury
         private void FixedUpdate()
         {
             if (!gameObject.activeInHierarchy) return;
-            
+            //print("L147");
             for (var index = _hitByBullets.Count - 1; index >= 0; index--)
             {
+              //  print("L150");
                 if (index >= _hitByBullets.Count)
                     return;
                 var manager = _hitByBullets[index];
@@ -252,14 +253,16 @@ namespace BulletFury
                 // loop through the bullets, if there was a collision this frame - tell the bullet manager and anything else that needs to know
                 for (int i = 0; i < _bullets.Length; i++)
                 {
+                   // print("L255");
                     if (_bullets[i].Dead == 0 && _bullets[i].Collided == 1 && _bullets[i].BouncedThisFrame == 0 && _bullets[i].CurrentSize > 0)
                     {
                         //if (Shape == ColliderShape.OBB)
-                          //  Debug.DrawLine(_bullets[i].Position, _bullets[i].Position + _bullets[i].Up, Color.green, 1);
-
+                        //  Debug.DrawLine(_bullets[i].Position, _bullets[i].Position + _bullets[i].Up, Color.green, 1);
+                    //    print("L260");
                         if (destroyBullet && !bounce)
                         {
                             manager.HitBullet(i);
+                          //  print("L264");
                         }
                         if (bounce)
                         {

@@ -32,7 +32,7 @@ public class MeleeAttack : MonoBehaviour
     private List<Collider2D> _attackedEnemies = new ();
 
     private AttackToken _token;
-    
+
     private void Update()
     {
         _hitTimer += Time.deltaTime;
@@ -40,6 +40,7 @@ public class MeleeAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (_attacking)
         {
             
@@ -73,6 +74,7 @@ public class MeleeAttack : MonoBehaviour
         
         _token = tokensToUse.RequestToken(this, 0);
         if (_token == null) return;
+        GetComponent<Animator>().SetTrigger("Attack");
         _attackedEnemies.Clear();
         _hitTimer -= hitCooldown;
         _attacking = true;

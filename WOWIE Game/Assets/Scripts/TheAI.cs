@@ -7,6 +7,7 @@ public class TheAI : MonoBehaviour
     public int StoredOre, RequiredOre;
     public GameObject Painting;
     public GameObject workedonpainting;
+    public bool line21;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,14 @@ public class TheAI : MonoBehaviour
     void Update()
     {
         if(StoredOre >= RequiredOre)
-        {           
+        {
+            if (GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove == false && line21 == false)
+            {
+                line21 = true;
+                GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().canmove = true;
+            }
+
+            GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>().paintingcreated();
             StoredOre = 0;
         }
     }

@@ -10,6 +10,7 @@ public class EnemySpawnner : MonoBehaviour
     public float t;
     public float wavecooldown;
     public int wavesizeMin, wavesizeMax;
+    public bool line30;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class EnemySpawnner : MonoBehaviour
     {
         t+=Time.deltaTime;
       
-        if (t>wavecooldown)
+        if (t>wavecooldown &&line30)
         {
             GameObject.FindGameObjectWithTag("Wavealert").GetComponent<Animation>().Play();
             for (int i = 0; i < Random.Range(wavesizeMin,wavesizeMax); i++)

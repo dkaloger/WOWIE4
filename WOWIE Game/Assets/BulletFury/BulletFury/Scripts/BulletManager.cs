@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BulletFury.Data;
+using BulletFury.Rendering;
+using BulletFury.Utils;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
@@ -17,8 +19,8 @@ using UnityEditor;
 namespace BulletFury
 {
 
-    #if UNITY_EDITOR
-    [InitializeOnLoad, ExecuteAlways]
+#if UNITY_EDITOR
+    [InitializeOnLoadAttribute, ExecuteAlways]
     #endif
     public class BulletManager : MonoBehaviour
     {
@@ -89,12 +91,12 @@ namespace BulletFury
         #endregion
 
         public int NumActiveBullets => currentActiveBullets;
-
+        
         /// <summary>
         /// Unity function, happens when the object is first loaded.
         /// Initialise the data.
         /// </summary>
-        private void Start()
+        private void Awake()
         {
             if (!Application.isPlaying) return;
             if (_managers == null)
@@ -221,6 +223,7 @@ namespace BulletFury
             buffer.name = "BulletFury";
             #endif
             
+            
             // create a new material property block - this contains the different colours for every instance
             _materialPropertyBlock = new MaterialPropertyBlock();
             
@@ -267,8 +270,17 @@ namespace BulletFury
             
             // draw all the meshes
             // n.b. this is why we can only have 1023 bullets per spawner
-            //buffer.DrawMeshInstanced(bulletSettings.Mesh, 0, bulletSettings.Material, 0, _matrices, maxBullets, _materialPropertyBlock);
-            Graphics.DrawMeshInstanced(bulletSettings.Mesh, 0, bulletSettings.Material, _matrices, currentActiveBullets, _materialPropertyBlock, ShadowCastingMode.Off, false);
+            buffer.DrawMeshInstanced(bulletSettings.Mesh, 0, bulletSettings.Material, 0, _matrices, maxBullets, _materialPropertyBlock);
+            
+            // can't have two objects with the same priority, so keep increasing it til we find one that fits
+            var priority = drawPriority;
+            if (BulletFuryRenderPass.Buffers == null)
+                BulletFuryRenderPass.Buffers = new SortedList<int, CommandBuffer>();
+            while (BulletFuryRenderPass.Buffers.ContainsKey(priority))
+                ++priority;
+            
+            // add the command buffer to the render pass
+            BulletFuryRenderPass.Buffers.Add(priority, buffer);
             maxActiveBullets = Mathf.Max(maxActiveBullets, currentActiveBullets);
         }
 
@@ -781,7 +793,7 @@ namespace BulletFury
         {
             if (_sceneView == null)
                 _sceneView = sceneView;
-            
+
             if (_previewMat == null && bulletSettings != null)
             {
                 _previewMat = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
