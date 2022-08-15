@@ -17,10 +17,13 @@ public class ThrowHeldItem : MonoBehaviour, IHeldItem
 
     private Collider2D[] _hit = new Collider2D[16];
 
+    private PlayerController controller;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void Pickup()
@@ -32,12 +35,11 @@ public class ThrowHeldItem : MonoBehaviour, IHeldItem
 
     public void Drop()
     {
-        Vector3 target = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        target.z = 0;
-
-        _rb.MovePosition(_parent.position + target.normalized * 1.5f);
+        Vector3 target = controller.movement.normalized;
+        
+        _rb.MovePosition(_parent.position + target * 1.5f);
         _rb.simulated = true;
-        _rb.AddForce(target.normalized * throwForce);
+        _rb.AddForce(target * throwForce);
         _collider.enabled = false;
         DOVirtual.DelayedCall(0.25f, () => _collider.enabled = true);
     }
