@@ -49,13 +49,16 @@ public class ThrowHeldItem : MonoBehaviour, IHeldItem
         if (!_rb.simulated || _rb.velocity.sqrMagnitude < 1)
             return;
 
-        var numHit = Physics2D.OverlapCircleNonAlloc(transform.position, hitRadius, _hit, layersToHit);
-        for (int i = 0; i < numHit; ++i)
+        if (_rb.velocity.x > 5 || _rb.velocity.y > 5)
         {
-            _hit[i].GetComponentInParent<IHitReceiver>()?.ReceiveHit(new HitData
+            var numHit = Physics2D.OverlapCircleNonAlloc(transform.position, hitRadius, _hit, layersToHit);
+            for (int i = 0; i < numHit; ++i)
             {
-                Damage = damageToDeal
-            });
+                _hit[i].GetComponentInParent<IHitReceiver>()?.ReceiveHit(new HitData
+                {
+                    Damage = damageToDeal
+                });
+            }
         }
     }
 }

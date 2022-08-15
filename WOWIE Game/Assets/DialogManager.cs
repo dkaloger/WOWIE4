@@ -15,7 +15,7 @@ public class DialogManager : MonoBehaviour
     public bool introcompleted = false;
     public AudioSource audiosrc;
     public bool coroutinerunning;
-    
+    public AudioClip[] clips;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +54,25 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audiosrc.enabled = coroutinerunning && towrite.Contains("Box"); 
+        if (coroutinerunning)
+        {
+            if (towrite.Contains("Box"))
+            {
+                audiosrc.clip = clips[0];
+                audiosrc.enabled = true;
+            }
+            if (towrite.Contains("Harrison"))
+            {
+                audiosrc.clip = clips[1];
+                audiosrc.enabled = true;
+            }
+        }
+        else
+        {
+            audiosrc.enabled = false;
+        }
+        
+
         if (page == 32 && !canmove)
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length < 2)

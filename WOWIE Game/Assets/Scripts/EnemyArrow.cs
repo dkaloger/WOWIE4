@@ -16,7 +16,8 @@ public class EnemyArrow : MonoBehaviour
         if(GameObject.FindWithTag("Enemy") != null)
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            transform.LookAt(GameObject.FindWithTag("Enemy").transform);
+            transform.right = GameObject.FindWithTag("Enemy").transform.position - transform.position;
+            //  transform.LookAt(GameObject.FindWithTag("Enemy").transform,new Vector3(0,1,0));
         }
         else
         {

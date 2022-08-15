@@ -44,6 +44,7 @@ public class Health : MonoBehaviour, IHitReceiver
     public float HealthPercentage => _healthPercentage;
     public bool die;
     public bool dying =false;
+    public Sprite[] damagestates;
     /// <summary>
     /// Called when the object is enabled
     /// Reset the current health
@@ -63,6 +64,8 @@ public class Health : MonoBehaviour, IHitReceiver
      //   print(_currentHealth);
         if (!enabled)
             return;
+
+     
         // keep track of what the health used to be
         _previousHealth = _currentHealth;
 
@@ -71,7 +74,12 @@ public class Health : MonoBehaviour, IHitReceiver
         // keep track of the current health as a percentage
         // - doing it here means we only have to do the divide once, and division is a computationally expensive operation
         _healthPercentage = _currentHealth / maxHealth;
-        if(GetComponent<Animator>() != null)
+
+        if (damagestates != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = damagestates[Mathf.Clamp( Mathf.FloorToInt(HealthPercentage * 4 -0.01f),0,3)];
+        }
+        if (GetComponent<Animator>() != null)
         {
             GetComponent<Animator>().SetBool("dying", dying);
         }
@@ -95,7 +103,7 @@ public class Health : MonoBehaviour, IHitReceiver
             dying = true;
            // GetComponent<Animator>().SetTrigger("Die");
             if(!name.Contains("Sheep")){
-                Destroy(gameObject,0.3f);
+                Destroy(gameObject);
             }else{
                 GetComponent<Shearing>().dead = true;
             }
