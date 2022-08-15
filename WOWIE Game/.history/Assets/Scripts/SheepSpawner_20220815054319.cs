@@ -35,7 +35,7 @@ public class SheepSpawner : MonoBehaviour
         else if(transform.position.x < 85){
             i = 2;
         }
-        Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
+        Vector2 screenPosition = camera.WorldToScreenPoint(sheepPos);
         if(!(screenPosition.y > Screen.height || screenPosition.y <0 || screenPosition.x > Screen.width || screenPosition.x < 0)){
             seen = true;
         }else{
@@ -70,9 +70,6 @@ public class SheepSpawner : MonoBehaviour
             GameObject sh2 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
             GameObject sh3 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
             GameObject sh4 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
-            switch(i){
-                
-            }
             
             var random = new System.Random();
             sh.GetComponent<SpriteRenderer>().flipX = random.Next(2) == 1;

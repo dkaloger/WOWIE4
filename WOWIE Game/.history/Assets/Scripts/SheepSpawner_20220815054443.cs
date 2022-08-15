@@ -70,9 +70,7 @@ public class SheepSpawner : MonoBehaviour
             GameObject sh2 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
             GameObject sh3 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
             GameObject sh4 = Instantiate(sheep, new Vector2(sheepPos.x + Random.Range(-5,5), sheepPos.y + Random.Range(-5,5)), Quaternion.identity);
-            switch(i){
-                
-            }
+            if(i == 1 && sh)
             
             var random = new System.Random();
             sh.GetComponent<SpriteRenderer>().flipX = random.Next(2) == 1;
