@@ -8,6 +8,12 @@ public class PlayerShoot : MonoBehaviour, IHeldItem
     [SerializeField] private BulletManager bullets;
     Animator Playeranim;
     private bool _held = false;
+    private static readonly int HoldingGun = Animator.StringToHash("HoldingGun");
+
+    private void Start()
+    {
+        Playeranim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
 
     public void Pickup()
     {
@@ -21,15 +27,13 @@ public class PlayerShoot : MonoBehaviour, IHeldItem
 
     private void Update()
     {
-        Playeranim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-        Playeranim.SetBool("HoldingGun", false);
+        Playeranim.SetBool(HoldingGun, false);
         if (!_held) return;
-        Playeranim.SetBool("HoldingGun", true);
+        Playeranim.SetBool(HoldingGun, true);
 
         Vector3 target = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         target.z = 0;
         var dir = target;
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (Input.GetButton("Fire1"))
           //  transform.position + (Vector3)movement.normalized + new Vector3(0.0f, -0.5f, 0f)
             bullets.Spawn(Playeranim.gameObject.transform.position +  new Vector3(0.0f, -0.3f, 0f), target.normalized);

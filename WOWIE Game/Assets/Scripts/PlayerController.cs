@@ -136,21 +136,20 @@ public class PlayerController : MonoBehaviour
                         }
                         
 
-                        var itemObject = Helditem.GetComponent<IHeldItem>();
+                        var itemObjects = Helditem.GetComponents<IHeldItem>();
                         
-                        if (itemObject != null)
-                            itemObject.Pickup();
+                        if (itemObjects is { Length: > 0 })
+                            foreach (var itemObject in itemObjects)
+                                itemObject.Pickup();
 
                         break;
                     }
                 }
             }
             //drop
-            else if(Helditem != null&& !Helditem.name.Contains("Painting"))
+            else if(Helditem != null && !Helditem.name.Contains("Painting"))
             {
-                var itemObject = Helditem.GetComponent<IHeldItem>();
-                if (itemObject != null)
-                    itemObject.Drop();
+                
                 if (Helditem.name.Contains("The AI"))
                 {
                     Helditem.GetComponent<BoxCollider2D>().enabled = true;
@@ -167,6 +166,11 @@ public class PlayerController : MonoBehaviour
 
                 Helditem.transform.parent = null;
              
+                var itemObjects = Helditem.GetComponents<IHeldItem>();
+                        
+                if (itemObjects is { Length: > 0 })
+                    foreach (var itemObject in itemObjects)
+                        itemObject.Drop();
               
                 Helditem = null;
               
