@@ -50,8 +50,8 @@ MonoBehaviour:
   - 'Harrison: I... I''ve always wanted to know what the old world was like.'
   - 'Box: A GREAT CHOICE! Get me materials! Like that ore over there!'
   - (Grab the pickaxe and move near minerals to mine them. Try that melted, unidentifiable
-    metal that might have been something long ago. Deliver 4 ore to make a complete
-    painting)
+    metal that might have been something long ago. Sheep have an apetite for it,
+    deliver 4 wool  to make a complete painting)
   - (The box whirs  and outputs a canvas with a painting,you can take the painting
     to an eisel to improve your prestige,you are the real artist not this AI thing)
   - (It's a strange scene, reminds me of the old world)
@@ -64,7 +64,8 @@ MonoBehaviour:
     dangerous out here.'
   - 'Box: NO! GENIUS CANNOT BE CONTAINED!'
   - "Harrison: It's not that it's- Oh shit. Incoming!\"\r"
-  - 'Box: USE YOUR GUN ! Dont let them get to me (pickup the gun and fire with LMB)'
+  - 'Box: USE YOUR GUN ! Dont let them get to me (pickup the gun and fire with LMB,or
+    throw it at the enemies with Space)'
   - 'Box: Thank you! you really saved my circuits from those fool brutes '
   - 'Box: Go Explore and bring me minerals to make more paintings ,dont you want
     to be famous?(there are 11 eisels scattered  around the map)'
