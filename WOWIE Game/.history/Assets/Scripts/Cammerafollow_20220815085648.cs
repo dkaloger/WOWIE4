@@ -38,9 +38,8 @@ public class Cammerafollow : MonoBehaviour
     }
     public void ShakeCamera(float mag)
     {          
-        StartCoroutine(ShakeCamera(0.1f,mag));
+        StartCoroutine(ShakeCamera()
     }
-    
     public IEnumerator ShakeCamera(float dur, float magn)
     {
         Vector3 origPos = transform.localPosition;
